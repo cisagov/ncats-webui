@@ -1,0 +1,40 @@
+PATH := node_modules/.bin:$(PATH)
+SHELL := /bin/bash
+current_dir = $(shell pwd)
+
+all: install gulp build
+
+dev: install gulp build-dev
+
+build: install install-config
+	ng build --prod
+	find dist -type f -print0 | sort -z | xargs -0 shasum | shasum > dist/config/app.version
+
+build-dev: install-config
+	find src -type f -print0 | sort -z | xargs -0 shasum | shasum > src/config/app.version
+
+install:
+	npm install
+	bower --allow-root install
+
+gulp: install
+	gulp
+
+install-config:
+	cp -n src/config/config.sample.json src/config/config.json || :
+
+docker-dev:
+	docker build -t ncats/webui-dev .
+	docker run -d --name ncats-webui-dev -p 4200:4200 -p 9876:9876 -v $(current_dir):/usr/src/app -v webui_dev_node_modules:/usr/src/app/node_modules -v webui_dev_bower_components:/usr/src/app/bower_components -v webui_dev_web_assets:/usr/src/app/src/assets/bower ncats/webui-dev
+
+docker-web-server:
+	# create the dist directory
+	docker-compose run --rm client make build
+	# copy the dist director into a docker image
+	docker build -t ncats/cyhy-web-server -f ./Dockerfile_dist .
+
+clean:
+	rm -rf ./bower_components
+	rm -rf ./src/assets/bower
+	rm -rf ./node_modules
+	rm -rf ./dist

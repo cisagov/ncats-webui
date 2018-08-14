@@ -1,0 +1,152 @@
+
+<div class="row bottom-spacing">
+  <div class="large-12 columns small-centered">
+    <h1 class="text-center">{{ customer?._id }} Request Details</h1>
+  </div>
+</div>
+
+<div class="row bottom-spacing">
+  <div class="large-6 columns">
+    <table id="agency-details" width="100%">
+      <CAPTION><EM>Agency Details</EM></CAPTION>
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{customer?.agency?.name}}</td>
+        </tr>
+        <tr>
+          <td>Acronym</td>
+          <td>{{customer?.agency?.acronym}}</td>
+        </tr>
+        <tr>
+          <td>Do Not Scan Before</td>
+          <td>{{customer?.period_start}} UTC</td>
+        </tr>
+        <tr>
+          <td>Scheduler</td>
+          <td>{{customer?.scheduler}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="large-6 columns">
+    <table id="tally-table" width="100%">
+      <CAPTION><EM>Scan Status</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Waiting</th>
+          <th>Ready</th>
+          <th>Running</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tally of tallyTableData;">
+          <td>{{tally[0]}}</td>
+          <td *ngFor="let value of tally[1]">{{value.toLocaleString('en')}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row bottom-spacing">
+  <div class="large-6 columns">
+    <table id="window-table" width="100%">
+      <CAPTION><EM>Scan Windows</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>Day of Week</th>
+          <th>Start</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let window of customer?.windows;">
+          <td>{{window.day}}</td>
+          <td>{{window.start}} UTC</td>
+          <td>{{window.duration}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="large-6 columns">
+    <table id="limit-table" width="100%">
+      <CAPTION><EM>Scan Limits</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>Scan Type</th>
+          <th>Concurrency Limit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let limit of customer?.scan_limits;">
+          <td>{{limit.scanType}}</td>
+          <td>{{limit.concurrent}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row bottom-spacing">
+  <div class="large-12 columns">
+    <table id="poc" width="100%">
+      <CAPTION><EM>Point of Contact</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of customer?.agency.contacts;">
+          <td>{{contact.type}}</td>
+          <td>{{contact.name}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.phone}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row bottom-spacing">
+  <div class="large-6 columns">
+    <table id="networks-table" width="100%">
+      <CAPTION><EM>Networks</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>CIDR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let network of customer?.networks;">
+          <td>{{network}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="customer?.children?.length > 0" class="large-6 columns">
+    <table id="child-orgs" width="100%">
+      <CAPTION><EM>Child Organizations</EM></CAPTION>
+      <thead>
+        <tr>
+          <th>Acronym</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let child of customer?.children;">
+          <td><a (click)="updateCustomerSubscription(child)">{{child}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

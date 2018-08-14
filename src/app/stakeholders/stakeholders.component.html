@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="large-12 columns">
+<h1>CSV Downloads</h1>
+</div></div>
+<div class="row">
+  <app-loading-circles *ngIf="isLoading"></app-loading-circles>
+      
+  <h4 *ngIf="http_error?.length > 0"> {{http_error}} </h4>
+  
+  <div *ngIf="!isLoading" class="large-12 columns">
+<h3>Stakeholder Details</h3>
+<table>
+	<thead>
+		<tr>
+			<th width="100">Organization</th>
+			<th width="100">City</th>
+      <th width="100">County</th>
+      <th width="100">State</th>
+      <th width="100">GNIS ID</th>
+      <th width="100">Organization Type</th>
+      <th width="100">Critical Infrastructure</th>
+      <th width="100">CI Sector</th>
+      <th width="100">Scheduler</th>
+      <th width="100">Reporting Period</th>
+      <th width="100">Election</th>
+      <th width="100">First Scan</th>
+		</tr>
+	</thead>
+	<tbody>
+<tr *ngFor="let customer of reportData | slice:1; let i = index">
+  <td><a target="_blank" href="/status/{{customer[0]}}">{{customer[0]}}, {{ customer[1] }}</a></td>
+  <td>{{ customer[2] }}</td>
+  <td>{{ customer[3] }}</td>
+  <td>{{ customer[4] }}</td>
+  <td>{{ customer[5] }}</td>
+  <td>{{ customer[6] }}</td>
+  <td>{{ customer[7] }}</td>
+  <td>{{ customer[8] }}</td>
+  <td>{{ customer[9] }}</td>
+  <td>{{ customer[10] }}</td>
+  <td>{{ customer[11] }}</td>
+  <td>{{ customer[12] }}</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+
+<div class="row">
+  <div class="large-12 columns">
+<div class="flash">
+    <a href="{{this.api_href}}/stakeholders/contacts" class="button tiny radius" title="Download Contact CSV"><i class="fi-page-export-csv">​</i> ​Download Contacts</a>
+    <a href="{{this.api_href}}/stakeholders/stakeholders" class="button tiny radius" title="Download Stakeholder CSV"><i class="fi-page-export-csv">​</i> ​Download Stakeholders</a>
+</div>
+</div></div>

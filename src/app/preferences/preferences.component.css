@@ -1,0 +1,23 @@
+.column-header {
+  text-decoration: underline;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.moveable {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.horizontal-space {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.dragula-container {
+  min-height: 4em;
+}

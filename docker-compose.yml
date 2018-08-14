@@ -1,0 +1,18 @@
+version: '2'
+
+volumes:
+  dev_node_modules:
+  dev_bower_components:
+  dev_web_assets:
+
+services:
+  web-server:
+      build: .
+      ports:
+        - "4200:4200"
+        - "9876:9876"
+      volumes:
+        - .:/usr/src/app
+        - dev_node_modules:/usr/src/app/node_modules
+        - dev_bower_components:/usr/src/app/bower_components
+        - dev_web_assets:/usr/src/app/src/assets/bower

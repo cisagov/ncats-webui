@@ -1,0 +1,27 @@
+{
+  "data_protocol": "http",
+  "data_host": "localhost",
+  "data_port": "5000",
+  "data_path": "api",
+  "cycle_pages": "false",
+  "components": {
+    "bod": true,
+    "cybex": true,
+    "dashboard": true,
+    "hiringdashboard": true,
+    "firstseenvulns": true,
+    "history": true,
+    "hostmap": true,
+    "metrics": true,
+    "preferences": true,
+    "riskrating": true,
+    "fema":true,
+    "congressional":true,
+    "stakeholders":true,
+    "scanmap": true,
+    "status": true,
+    "statusdetail": true,
+    "vulnerabilitymap": true,
+    "weeklytickets": true
+  }
+}

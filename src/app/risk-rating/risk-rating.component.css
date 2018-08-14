@@ -1,0 +1,5 @@
+table {
+  display: block;
+  height: 500px;
+  overflow-y: scroll;
+}

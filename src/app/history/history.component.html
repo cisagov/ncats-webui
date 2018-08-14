@@ -1,0 +1,22 @@
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Scan History</h1>
+  </div>
+</div>
+
+<table id="snapshot-table">
+  <!-- <CAPTION><EM>Snapshots</EM></CAPTION> -->
+  <thead>
+    <tr>
+      <th>Short Name</th>
+      <th>Age (Days)</th>
+      <th>Last Start</th>
+      <th>Last End</th>
+      <th>Last Duration (Days)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <app-loading-circles *ngIf="isLoading"></app-loading-circles>
+  </tbody>
+</table>
