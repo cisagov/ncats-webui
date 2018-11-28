@@ -8,7 +8,7 @@
     "bod": true,
     "cybex": true,
     "dashboard": true,
-    "hiringdashboard": true,
+    "hiringdashboard": false,
     "firstseenvulns": true,
     "history": true,
     "hostmap": true,
