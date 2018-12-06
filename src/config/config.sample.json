@@ -2,7 +2,7 @@
   "data_protocol": "http",
   "data_host": "localhost",
   "data_port": "5000",
-  "data_path": "api",
+  "data_path": "",
   "cycle_pages": "false",
   "components": {
     "bod": true,
