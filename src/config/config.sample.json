@@ -5,7 +5,7 @@
   "data_path": "",
   "cycle_pages": "false",
   "components": {
-    "bod": false,
+    "bod": true,
     "cybex": true,
     "dashboard": true,
     "hiringdashboard": false,
