@@ -29,10 +29,10 @@ export class StakeholdersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle('CSV Downloads');
+    this.titleService.setTitle('Stakeholder Info');
     this.api_href = this.config.getApiPath();
     this.dataSource = new CyhyJsonDataSource(
-      'CSV Data',
+      'Stakeholder Info',
       this.config.get('data_protocol'),
       this.config.get('data_host'),
       [this.config.get('data_path'), '/stakeholders/'],
