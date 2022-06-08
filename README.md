@@ -101,7 +101,7 @@ For more information on the usage of ng, visit
 
 Since the npm/bower package installation occurs in the building of the image,
 you will need to add your package using whatever method you like (easiest is
-  npm install --save).
+`npm install --save`, as shown below).
 
 ### Install NPM or Bower packages ###
 
@@ -133,7 +133,7 @@ make dev-rebuild
 
 When installing packages with npm, the package will be made available
 "locally", or in your current working directory. From time to time you'll want
-to use it to install packages "globally", or system-wide. NPM global installs
+to use it to install packages "globally", or system-wide. npm global installs
 are put in `/usr/local`, and binaries from those packages are sym-linked in
 `/usr/local/bin`. Some people don't mind `sudo`'ing npm installs, or chowning
 `/usr/local` to make this work. However, I prefer changing the npm prefix to
