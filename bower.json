@@ -1,11 +1,15 @@
 {
-  "name": "angular-example",
-  "description": "Helping understand the angular workflow",
-  "main": "",
   "authors": [
     "Adam Brown <audrummer15@gmail.com>"
   ],
-  "license": "MIT",
+  "dependencies": {
+    "c3": "^0.4.11",
+    "d3": "3.5.5",
+    "fastclick": "^1.0.6",
+    "foundation": "15d98294916c50ce8e6838bc035f4f136d4dc704",
+    "foundation-icon-fonts": "*"
+  },
+  "description": "Helping understand the angular workflow",
   "homepage": "",
   "ignore": [
     "**/.*",
@@ -14,13 +18,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "foundation-icon-fonts": "*",
-    "foundation": "15d98294916c50ce8e6838bc035f4f136d4dc704",
-    "d3": "3.5.5",
-    "c3": "^0.4.11",
-    "fastclick": "^1.0.6"
-  },
+  "license": "MIT",
+  "main": "",
+  "name": "angular-example",
   "overrides": {
     "foundation": {
       "main": [

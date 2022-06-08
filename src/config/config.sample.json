@@ -1,27 +1,27 @@
 {
-  "data_protocol": "http",
-  "data_host": "localhost",
-  "data_port": "5000",
-  "data_path": "",
-  "cycle_pages": "false",
   "components": {
     "bod": true,
+    "congressional": true,
     "cybex": true,
     "dashboard": true,
-    "hiringdashboard": false,
+    "fema": true,
     "firstseenvulns": true,
+    "hiringdashboard": false,
     "history": true,
     "hostmap": true,
     "metrics": true,
     "preferences": true,
     "riskrating": true,
-    "fema":true,
-    "congressional":true,
-    "stakeholders":true,
     "scanmap": true,
+    "stakeholders": true,
     "status": true,
     "statusdetail": true,
     "vulnerabilitymap": true,
     "weeklytickets": true
-  }
+  },
+  "cycle_pages": "false",
+  "data_host": "localhost",
+  "data_path": "",
+  "data_port": "5000",
+  "data_protocol": "http"
 }
