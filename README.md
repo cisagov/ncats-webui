@@ -1,5 +1,10 @@
 # NCATS-WebUI
 
+[![GitHub Build Status](https://github.com/cisagov/ncats-webui/workflows/build/badge.svg)](https://github.com/cisagov/ncats-webui/actions)
+
+An [Angular](https://angular.io/) web application for displaying
+[CyHy Vulnerability Scanning](https://github.com/cisagov/cyhy_amis) data.
+
 ## Getting Started
 ```bash
 $ hg clone ssh://code.ncats.dhs.gov//hg/ncats-webui
@@ -139,3 +144,21 @@ Both of these methods output the prod files to a dist folder within client/ fold
 
 #### References
 loading-circles - http://codepen.io/Siddharth11/pen/xbGrpG
+
+## Contributing ##
+
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
+details.
+
+## License ##
+
+This project is in the worldwide [public domain](LICENSE).
+
+This project is in the public domain within the United States, and
+copyright and related rights in the work worldwide are waived through
+the [CC0 1.0 Universal public domain
+dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+
+All contributions to this project will be released under the CC0
+dedication. By submitting a pull request, you are agreeing to comply
+with this waiver of copyright interest.
