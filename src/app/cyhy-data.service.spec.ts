@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { CyhyDataService } from './cyhy-data.service';
+import { TestBed, async, inject } from "@angular/core/testing";
+import { CyhyDataService } from "./cyhy-data.service";
 
-describe('Service: CyhyData', () => {
+describe("Service: CyhyData", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CyhyDataService]
+      providers: [CyhyDataService],
     });
   });
 
-  it('should ...', inject([CyhyDataService], (service: CyhyDataService) => {
+  it("should ...", inject([CyhyDataService], (service: CyhyDataService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,16 +1,19 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { QueryParamExaminerService } from './query-param-examiner.service';
+import { TestBed, async, inject } from "@angular/core/testing";
+import { QueryParamExaminerService } from "./query-param-examiner.service";
 
-describe('QueryParamExaminerService', () => {
+describe("QueryParamExaminerService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [QueryParamExaminerService]
+      providers: [QueryParamExaminerService],
     });
   });
 
-  it('should ...', inject([QueryParamExaminerService], (service: QueryParamExaminerService) => {
-    expect(service).toBeTruthy();
-  }));
+  it("should ...", inject(
+    [QueryParamExaminerService],
+    (service: QueryParamExaminerService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

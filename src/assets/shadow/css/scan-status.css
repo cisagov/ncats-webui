@@ -10,21 +10,58 @@ button {
   top: 10px;
 }
 
-.bullet { font: 10px sans-serif; position: absolute;}
-.bullet .marker { stroke: #000; stroke-width: 2px; }
-.bullet .tick line { stroke: #666; stroke-width: .5px; }
-.bullet .range.s0 { fill: #e6ccb0; } /*BASESCAN*/
-.bullet .range.s1 { fill: #b9ddaa; } /*VULNSCAN*/
-.bullet .range.s2 { fill: #e6e1b0; } /*PORTSCAN*/
-.bullet .range.s3 { fill: #e17d8b; } /*NETSCAN2*/
-.bullet .range.s4 { fill: #e1adb4; } /*NETSCAN1*/
-.bullet .range.s5 { fill: #fff; } /*DONE, not inited*/
-.bullet .measure.s0 { fill: #00ff00; }
-.bullet .measure.s1 { fill: #4682B4; }
-.bullet .measure.s2 { fill: #B482B4; }
-.bullet .title-active { font-size: 14px; font-weight: bold; fill: #000000;}
-.bullet .title-completed { font-size: 14px; font-weight: bold; fill: #008800;}
-.bullet .subtitle { fill: #999; }
+.bullet {
+  font: 10px sans-serif;
+  position: absolute;
+}
+.bullet .marker {
+  stroke: #000;
+  stroke-width: 2px;
+}
+.bullet .tick line {
+  stroke: #666;
+  stroke-width: 0.5px;
+}
+.bullet .range.s0 {
+  fill: #e6ccb0;
+} /*BASESCAN*/
+.bullet .range.s1 {
+  fill: #b9ddaa;
+} /*VULNSCAN*/
+.bullet .range.s2 {
+  fill: #e6e1b0;
+} /*PORTSCAN*/
+.bullet .range.s3 {
+  fill: #e17d8b;
+} /*NETSCAN2*/
+.bullet .range.s4 {
+  fill: #e1adb4;
+} /*NETSCAN1*/
+.bullet .range.s5 {
+  fill: #fff;
+} /*DONE, not inited*/
+.bullet .measure.s0 {
+  fill: #00ff00;
+}
+.bullet .measure.s1 {
+  fill: #4682b4;
+}
+.bullet .measure.s2 {
+  fill: #b482b4;
+}
+.bullet .title-active {
+  font-size: 14px;
+  font-weight: bold;
+  fill: #000000;
+}
+.bullet .title-completed {
+  font-size: 14px;
+  font-weight: bold;
+  fill: #008800;
+}
+.bullet .subtitle {
+  fill: #999;
+}
 
 .view_link {
   padding-left: 1em;
@@ -33,6 +70,6 @@ button {
 }
 
 .placeholder {
-  width:960px;
-  margin:auto;
+  width: 960px;
+  margin: auto;
 }

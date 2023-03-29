@@ -1,23 +1,28 @@
-
 <html>
-<head>
-  <link href="/assets/shadow/css/scan-status.css" rel="stylesheet" type="text/css">
-</head>
+  <head>
+    <link
+      href="/assets/shadow/css/scan-status.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
 
-<!-- Give 0 padding because foundation will add padding to this body and the main body -->
-<body style="padding-top:0 !important;">
-  <div class="row">
-    <div class="large-12 columns">
-      <h1>Scan Progress</h1>
-      <dl class="sub-nav">
+  <!-- Give 0 padding because foundation will add padding to this body and the main body -->
+  <body style="padding-top: 0 !important">
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Scan Progress</h1>
+        <dl class="sub-nav">
           <dt>Filter:</dt>
-          <dd id="dd-all" class="active"><a (click)="change_view(1)">All</a></dd>
+          <dd id="dd-all" class="active">
+            <a (click)="change_view(1)">All</a>
+          </dd>
           <dd id="dd-recent"><a (click)="change_view(0)">Recent</a></dd>
           <dd id="dd-now"><a (click)="change_view(2)">Now</a></dd>
           <dd *ngIf="isLoading">Loading...</dd>
-      </dl>
+        </dl>
+      </div>
     </div>
-  </div>
-  <div class='placeholder'></div>
-</body>
+    <div class="placeholder"></div>
+  </body>
 </html>

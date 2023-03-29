@@ -1,87 +1,120 @@
-<span *ngIf="display_chart==chart.ALL">
-
+<span *ngIf="display_chart == chart.ALL">
   <div class="row">
     <div class="large-12 columns">
       <h1>Cyber Exposure Status</h1>
     </div>
   </div>
   <p></p>
-  <hr>
+  <hr />
   <div class="row">
     <div class="large-12 columns">
       <h2>Critical-Severity Vulnerability Age Graph</h2>
       <!-- <h5 class="subheader">Graph shows past 365 days of data</h5> -->
-      <h5 class="subheader">Graph begins on May 21, 2015 (BOD 15-01 start date)</h5>
+      <h5 class="subheader">
+        Graph begins on May 21, 2015 (BOD 15-01 start date)
+      </h5>
     </div>
   </div>
 </span>
 
 <!-- displaying chart 1 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
     <div id="cybex_chart1"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.ONE" id="naked_chart1"></div>
+<div *ngIf="display_chart == chart.ONE" id="naked_chart1"></div>
 <!-- end of chart 1 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
   <div class="row">
     <div class="large-8 columns large-centered">
-      <a href="{{this.api_href}}/cybex/?c1" class="button tiny radius" title="Download CSV with data from graph above"><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a>
-      <a href="{{this.api_href}}/cybex/?c2" class="button tiny radius" title="Download CSV for all currently-open critical-severity tickets"><i class="fi-page-export-csv">​</i> ​Download Open Tickets CSV</a>
-      <a href="{{this.api_href}}/cybex/?c3" class="button tiny radius" title="Download CSV for critical-severity tickets closed in past 30 days"><i class="fi-page-export-csv">​</i> ​Download Closed Tickets CSV</a>
+      <a
+        href="{{ this.api_href }}/cybex/?c1"
+        class="button tiny radius"
+        title="Download CSV with data from graph above"
+        ><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a
+      >
+      <a
+        href="{{ this.api_href }}/cybex/?c2"
+        class="button tiny radius"
+        title="Download CSV for all currently-open critical-severity tickets"
+        ><i class="fi-page-export-csv">​</i> ​Download Open Tickets CSV</a
+      >
+      <a
+        href="{{ this.api_href }}/cybex/?c3"
+        class="button tiny radius"
+        title="Download CSV for critical-severity tickets closed in past 30 days"
+        ><i class="fi-page-export-csv">​</i> ​Download Closed Tickets CSV</a
+      >
     </div>
   </div>
-  <hr>
+  <hr />
   <div class="row">
-      <div class="large-12 columns">
-        <h2>Critical-Severity Vulnerability Age Distribution</h2>
-      </div>
+    <div class="large-12 columns">
+      <h2>Critical-Severity Vulnerability Age Distribution</h2>
+    </div>
   </div>
 </span>
 
 <!-- displaying chart 2 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
     <div id="cybex_chart2"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.TWO" id="naked_chart2"></div>
+<div *ngIf="display_chart == chart.TWO" id="naked_chart2"></div>
 <!-- end of chart 2 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
-  <hr>
+  <hr />
   <div class="row">
     <div class="large-12 columns">
       <h2>High-Severity Vulnerability Age Graph</h2>
       <!-- <h5 class="subheader">Graph shows past 365 days of data</h5> -->
-      <h5 class="subheader">Graph begins on May 21, 2015 (BOD 15-01 start date)</h5>
+      <h5 class="subheader">
+        Graph begins on May 21, 2015 (BOD 15-01 start date)
+      </h5>
     </div>
   </div>
 </span>
 
 <!-- displaying chart 3 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
-      <div id="cybex_chart3"></div>
+    <div id="cybex_chart3"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.THREE" id="naked_chart3"></div>
+<div *ngIf="display_chart == chart.THREE" id="naked_chart3"></div>
 <!-- end of chart 3 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
   <div class="row">
     <div class="large-8 columns large-centered">
-      <a href="{{this.api_href}}/cybex/?c4" class="button tiny radius" title="Download CSV with data from graph above"><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a>
-      <a href="{{this.api_href}}/cybex/?c5" class="button tiny radius" title="Download CSV for all currently-open high-severity tickets"><i class="fi-page-export-csv">​</i> ​Download Open Tickets CSV</a>
-      <a href="{{this.api_href}}/cybex/?c6" class="button tiny radius" title="Download CSV for high-severity tickets closed in past 30 days"><i class="fi-page-export-csv">​</i> ​Download Closed Tickets CSV</a>
+      <a
+        href="{{ this.api_href }}/cybex/?c4"
+        class="button tiny radius"
+        title="Download CSV with data from graph above"
+        ><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a
+      >
+      <a
+        href="{{ this.api_href }}/cybex/?c5"
+        class="button tiny radius"
+        title="Download CSV for all currently-open high-severity tickets"
+        ><i class="fi-page-export-csv">​</i> ​Download Open Tickets CSV</a
+      >
+      <a
+        href="{{ this.api_href }}/cybex/?c6"
+        class="button tiny radius"
+        title="Download CSV for high-severity tickets closed in past 30 days"
+        ><i class="fi-page-export-csv">​</i> ​Download Closed Tickets CSV</a
+      >
     </div>
   </div>
-  <hr>
+  <hr />
   <div class="row">
     <div class="large-12 columns">
       <h2>High-Severity Vulnerability Age Distribution</h2>
@@ -90,15 +123,15 @@
 </span>
 
 <!-- displaying chart 4 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
     <div id="cybex_chart4"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.FOUR" id="naked_chart4"></div>
+<div *ngIf="display_chart == chart.FOUR" id="naked_chart4"></div>
 <!-- end of chart 4 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
-  <hr>
+  <hr />
 </span>

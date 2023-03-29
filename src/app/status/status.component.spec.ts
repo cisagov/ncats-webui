@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { StatusComponent } from './status.component';
+import { StatusComponent } from "./status.component";
 
-describe('Component: Status', () => {
+describe("Component: Status", () => {
   let component: StatusComponent;
   let fixture: ComponentFixture<StatusComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatusComponent ]
-    })
-    .compileComponents();
+      declarations: [StatusComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('Component: Status', () => {
     fixture.detectChanges();
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(component).toBeTruthy();
   });
 });

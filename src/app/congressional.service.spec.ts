@@ -1,15 +1,18 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { CongressionalService } from './congressional.service';
+import { CongressionalService } from "./congressional.service";
 
-describe('CongressionalService', () => {
+describe("CongressionalService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CongressionalService]
+      providers: [CongressionalService],
     });
   });
 
-  it('should be created', inject([CongressionalService], (service: CongressionalService) => {
-    expect(service).toBeTruthy();
-  }));
+  it("should be created", inject(
+    [CongressionalService],
+    (service: CongressionalService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

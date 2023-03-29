@@ -1,152 +1,223 @@
 <div class="row">
-    <div class="large-12 columns">
-        <h1>Congressional Metrics</h1>
-    </div>
+  <div class="large-12 columns">
+    <h1>Congressional Metrics</h1>
+  </div>
 </div>
 
-<br><br>
+<br /><br />
 <div class="flash" *ngIf="queryFlash">
-  {{queryFlash}}
+  {{ queryFlash }}
 </div>
-<form [formGroup]="queryForm" novalidate (ngSubmit)="submit(queryForm.value, queryForm.valid)">
-    <div class="row">
-        <div class="large-6 columns">
-            <label>Start Date <small>required</small></label>
-            <input type="date" formControlName="start" placeholder="mm/dd/yyyy"/>
-            <small *ngIf="!(queryForm.get('start').valid || (queryForm.get('start').pristine && !formSubmitted))" class="error">
-              A valid start date is required. mm/dd/yyyy
-            </small>
-        </div>
-        <div class="large-6 columns">
-            <label>End Date <small>required</small>
-                <input type="date" formControlName="end" placeholder="mm/dd/yyyy"/>
-            </label>
-            <small *ngIf="!(queryForm.get('end').valid || (queryForm.get('end').pristine && !formSubmitted))" class="error">
-              A valid start date is required. mm/dd/yyyy
-            </small>
-        </div>
+<form
+  [formGroup]="queryForm"
+  novalidate
+  (ngSubmit)="submit(queryForm.value, queryForm.valid)"
+>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Start Date <small>required</small></label>
+      <input type="date" formControlName="start" placeholder="mm/dd/yyyy" />
+      <small
+        *ngIf="
+          !(
+            queryForm.get('start').valid ||
+            (queryForm.get('start').pristine && !formSubmitted)
+          )
+        "
+        class="error"
+      >
+        A valid start date is required. mm/dd/yyyy
+      </small>
     </div>
-    <div class="row">
-        <div class="large-2 columns small-centered">
-            <input id="querySubmit" type="submit" class="button">
-        </div>
+    <div class="large-6 columns">
+      <label
+        >End Date <small>required</small>
+        <input type="date" formControlName="end" placeholder="mm/dd/yyyy" />
+      </label>
+      <small
+        *ngIf="
+          !(
+            queryForm.get('end').valid ||
+            (queryForm.get('end').pristine && !formSubmitted)
+          )
+        "
+        class="error"
+      >
+        A valid start date is required. mm/dd/yyyy
+      </small>
     </div>
-    <div *ngIf="isLoading" class="row">
-      <app-loading-circles></app-loading-circles>
+  </div>
+  <div class="row">
+    <div class="large-2 columns small-centered">
+      <input id="querySubmit" type="submit" class="button" />
     </div>
+  </div>
+  <div *ngIf="isLoading" class="row">
+    <app-loading-circles></app-loading-circles>
+  </div>
 </form>
 
 <!-- ><app-metrics-results [queryResult]="queryResult"></app-metrics-results> -->
 <div class="flash" *ngIf="queryResult">
---------------------------------------------------<br>
-Critical Vulnerability Remediation Performance:<br>
-  FEDERAL:<br>
-    Median time to mitigate Critical vulnerabilities: {{queryResult.FEDERAL_median_time_to_mitigate}} days<br>
-    Median time Critical vulnerabilities currently active: {{queryResult.FEDERAL_currently_active}} days<br>
-  FEDERAL EXECUTIVE:<br>
-    Median time to mitigate Critical vulnerabilities: {{queryResult.FEDERAL_EXECUTIVE_median_time_to_mitigate}} days<br>
-    Median time Critical vulnerabilities currently active: {{queryResult.FEDERAL_EXECUTIVE_currently_active}} days<br>
-  FEDERAL EXECUTIVE - CFO ACT:<br>
-    Median time to mitigate Critical vulnerabilities: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_median_time_to_mitigate}} days<br>
-    Median time Critical vulnerabilities currently active: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_currently_active}} days<br>
-  FEDERAL EXECUTIVE - NON-CFO ACT:<br>
-    Median time to mitigate Critical vulnerabilities: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_median_time_to_mitigate}} days<br>
-    Median time Critical vulnerabilities currently active: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_currently_active}} days<br><br>
-  
-  --------------------------------------------------<br>
-  Number of Active CyHy Stakeholders by Segment:<br>
+  --------------------------------------------------<br />
+  Critical Vulnerability Remediation Performance:<br />
+  FEDERAL:<br />
+  Median time to mitigate Critical vulnerabilities:
+  {{ queryResult.FEDERAL_median_time_to_mitigate }} days<br />
+  Median time Critical vulnerabilities currently active:
+  {{ queryResult.FEDERAL_currently_active }} days<br />
+  FEDERAL EXECUTIVE:<br />
+  Median time to mitigate Critical vulnerabilities:
+  {{ queryResult.FEDERAL_EXECUTIVE_median_time_to_mitigate }} days<br />
+  Median time Critical vulnerabilities currently active:
+  {{ queryResult.FEDERAL_EXECUTIVE_currently_active }} days<br />
+  FEDERAL EXECUTIVE - CFO ACT:<br />
+  Median time to mitigate Critical vulnerabilities:
+  {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_median_time_to_mitigate }}
+  days<br />
+  Median time Critical vulnerabilities currently active:
+  {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_currently_active }} days<br />
+  FEDERAL EXECUTIVE - NON-CFO ACT:<br />
+  Median time to mitigate Critical vulnerabilities:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_median_time_to_mitigate }}
+  days<br />
+  Median time Critical vulnerabilities currently active:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_currently_active }}
+  days<br /><br />
 
-  FEDERAL: {{queryResult.FEDERAL_active_stakeholders}} stakeholders<br>
-  FEDERAL EXECUTIVE: {{queryResult.FEDERAL_EXECUTIVE_active_stakeholders}} stakeholders<br>
-  FEDERAL EXECUTIVE - CFO ACT: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_active_stakeholders}} stakeholders<br>
-  FEDERAL EXECUTIVE - NON-CFO ACT: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_active_stakeholders}} stakeholders<br>
-  SLTT: {{queryResult.SLTT_active_stakeholders}} stakeholders<br>
-  PRIVATE: {{queryResult.PRIVATE_active_stakeholders}} stakeholders<br><br>
-  
-  --------------------------------------------------<br>
-  Number of New Vulnerabilities Detected:<br>
+  --------------------------------------------------<br />
+  Number of Active CyHy Stakeholders by Segment:<br />
 
-  FEDERAL:<br>
-    Critical: {{queryResult.FEDERAL_Critical_New_Vulns_Detected}}<br>
-    High: {{queryResult.FEDERAL_High_New_Vulns_Detected}}<br>
-    Medium: {{queryResult.FEDERAL_Medium_New_Vulns_Detected}}<br>
-    Low: {{queryResult.FEDERAL_Low_New_Vulns_Detected}}<br>
+  FEDERAL: {{ queryResult.FEDERAL_active_stakeholders }} stakeholders<br />
+  FEDERAL EXECUTIVE:
+  {{ queryResult.FEDERAL_EXECUTIVE_active_stakeholders }} stakeholders<br />
+  FEDERAL EXECUTIVE - CFO ACT:
+  {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_active_stakeholders }}
+  stakeholders<br />
+  FEDERAL EXECUTIVE - NON-CFO ACT:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_active_stakeholders }}
+  stakeholders<br />
+  SLTT: {{ queryResult.SLTT_active_stakeholders }} stakeholders<br />
+  PRIVATE:
+  {{ queryResult.PRIVATE_active_stakeholders }} stakeholders<br /><br />
 
-  FEDERAL EXECUTIVE:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE_Critical_New_Vulns_Detected}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE_High_New_Vulns_Detected}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE_Medium_New_Vulns_Detected}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE_Low_New_Vulns_Detected}}<br>
+  --------------------------------------------------<br />
+  Number of New Vulnerabilities Detected:<br />
 
-  FEDERAL EXECUTIVE - CFO ACT:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Critical_New_Vulns_Detected}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_High_New_Vulns_Detected}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Medium_New_Vulns_Detected}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Low_New_Vulns_Detected}}<br>
+  FEDERAL:<br />
+  Critical: {{ queryResult.FEDERAL_Critical_New_Vulns_Detected }}<br />
+  High: {{ queryResult.FEDERAL_High_New_Vulns_Detected }}<br />
+  Medium: {{ queryResult.FEDERAL_Medium_New_Vulns_Detected }}<br />
+  Low: {{ queryResult.FEDERAL_Low_New_Vulns_Detected }}<br />
 
-  FEDERAL EXECUTIVE - NON-CFO ACT:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Critical_New_Vulns_Detected}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_High_New_Vulns_Detected}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Medium_New_Vulns_Detected}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Low_New_Vulns_Detected}}<br><br>
+  FEDERAL EXECUTIVE:<br />
+  Critical: {{ queryResult.FEDERAL_EXECUTIVE_Critical_New_Vulns_Detected
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE_High_New_Vulns_Detected }}<br />
+  Medium: {{ queryResult.FEDERAL_EXECUTIVE_Medium_New_Vulns_Detected }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE_Low_New_Vulns_Detected }}<br />
 
-  --------------------------------------------------<br>
-  Number of Vulnerabilities Mitigated:<br>
+  FEDERAL EXECUTIVE - CFO ACT:<br />
+  Critical:
+  {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Critical_New_Vulns_Detected
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_High_New_Vulns_Detected
+  }}<br />
+  Medium: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Medium_New_Vulns_Detected
+  }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Low_New_Vulns_Detected
+  }}<br />
 
-  FEDERAL:<br>
-    Critical: {{queryResult.FEDERAL_Critical_New_Vulns_Mitigated}}<br>
-    High: {{queryResult.FEDERAL_High_New_Vulns_Mitigated}}<br>
-    Medium: {{queryResult.FEDERAL_Medium_New_Vulns_Mitigated}}<br>
-    Low: {{queryResult.FEDERAL_Low_New_Vulns_Mitigated}}<br>
+  FEDERAL EXECUTIVE - NON-CFO ACT:<br />
+  Critical:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Critical_New_Vulns_Detected
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_High_New_Vulns_Detected
+  }}<br />
+  Medium:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Medium_New_Vulns_Detected
+  }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Low_New_Vulns_Detected
+  }}<br /><br />
 
-  FEDERAL EXECUTIVE:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE_Critical_New_Vulns_Mitigated}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE_High_New_Vulns_Mitigated}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE_Medium_New_Vulns_Mitigated}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE_Low_New_Vulns_Mitigated}}<br>
+  --------------------------------------------------<br />
+  Number of Vulnerabilities Mitigated:<br />
 
-  FEDERAL EXECUTIVE - CFO ACT:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Critical_New_Vulns_Mitigated}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_High_New_Vulns_Mitigated}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Medium_New_Vulns_Mitigated}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Low_New_Vulns_Mitigated}}<br>
+  FEDERAL:<br />
+  Critical: {{ queryResult.FEDERAL_Critical_New_Vulns_Mitigated }}<br />
+  High: {{ queryResult.FEDERAL_High_New_Vulns_Mitigated }}<br />
+  Medium: {{ queryResult.FEDERAL_Medium_New_Vulns_Mitigated }}<br />
+  Low: {{ queryResult.FEDERAL_Low_New_Vulns_Mitigated }}<br />
 
-  FEDERAL EXECUTIVE - NON-CFO ACT:<br>
-    Critical: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Critical_New_Vulns_Mitigated}}<br>
-    High: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_High_New_Vulns_Mitigated}}<br>
-    Medium: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Medium_New_Vulns_Mitigated}}<br>
-    Low: {{queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Low_New_Vulns_Mitigated}}<br>
-    
-  <br><br>
-  ==================================================<br>
-  Active CyHy Federal Stakeholders:<br>
-  
+  FEDERAL EXECUTIVE:<br />
+  Critical: {{ queryResult.FEDERAL_EXECUTIVE_Critical_New_Vulns_Mitigated
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE_High_New_Vulns_Mitigated }}<br />
+  Medium: {{ queryResult.FEDERAL_EXECUTIVE_Medium_New_Vulns_Mitigated }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE_Low_New_Vulns_Mitigated }}<br />
+
+  FEDERAL EXECUTIVE - CFO ACT:<br />
+  Critical:
+  {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Critical_New_Vulns_Mitigated
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_High_New_Vulns_Mitigated
+  }}<br />
+  Medium: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Medium_New_Vulns_Mitigated
+  }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Low_New_Vulns_Mitigated
+  }}<br />
+
+  FEDERAL EXECUTIVE - NON-CFO ACT:<br />
+  Critical:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Critical_New_Vulns_Mitigated
+  }}<br />
+  High: {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_High_New_Vulns_Mitigated
+  }}<br />
+  Medium:
+  {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Medium_New_Vulns_Mitigated
+  }}<br />
+  Low: {{ queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Low_New_Vulns_Mitigated
+  }}<br />
+
+  <br /><br />
+  ==================================================<br />
+  Active CyHy Federal Stakeholders:<br />
+
   <span *ngFor="let i of queryResult.FEDERAL_Active_CyHy_Stakeholders">
-      {{i}}&nbsp;
+    {{ i }}&nbsp;
   </span>
-  
-  <br><br>
-  ==================================================<br>
-  Active CyHy Federal Executive Stakeholders:<br>
-  
-  <span *ngFor="let i of queryResult.FEDERAL_EXECUTIVE_Active_CyHy_Stakeholders">
-      {{i}}&nbsp;
+
+  <br /><br />
+  ==================================================<br />
+  Active CyHy Federal Executive Stakeholders:<br />
+
+  <span
+    *ngFor="let i of queryResult.FEDERAL_EXECUTIVE_Active_CyHy_Stakeholders"
+  >
+    {{ i }}&nbsp;
   </span>
-  
-  <br><br>
-  ==================================================<br>
-  Active CyHy Federal Executive - CFO Act Stakeholders:<br>
-  
-  <span *ngFor="let i of queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Active_CyHy_Stakeholders">
-      {{i}}&nbsp;
+
+  <br /><br />
+  ==================================================<br />
+  Active CyHy Federal Executive - CFO Act Stakeholders:<br />
+
+  <span
+    *ngFor="
+      let i of queryResult.FEDERAL_EXECUTIVE___CFO_ACT_Active_CyHy_Stakeholders
+    "
+  >
+    {{ i }}&nbsp;
   </span>
-  
-  <br><br>
-  ==================================================<br>
-  Active CyHy Federal Executive - Non CFO Act Stakeholders:<br>
-  
-  <span *ngFor="let i of queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Active_CyHy_Stakeholders">
-      {{i}}&nbsp;
+
+  <br /><br />
+  ==================================================<br />
+  Active CyHy Federal Executive - Non CFO Act Stakeholders:<br />
+
+  <span
+    *ngFor="
+      let i of queryResult.FEDERAL_EXECUTIVE___NON_CFO_ACT_Active_CyHy_Stakeholders
+    "
+  >
+    {{ i }}&nbsp;
   </span>
-  
 </div>

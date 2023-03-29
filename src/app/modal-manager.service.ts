@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 // Have to use bower instance until we figure out how to add .foundation() to jquery.
 declare var $: any;
@@ -9,10 +9,9 @@ declare var $: any;
 ********************************************************/
 @Injectable()
 export class ModalManagerService {
-
   public static readonly ACCESS_WARNING_MODAL: string = "#access_modal";
 
-  constructor() { }
+  constructor() {}
 
   displayModal(id: string): void {
     /*
@@ -21,8 +20,7 @@ export class ModalManagerService {
         the modal if it's too long. To get around this, we will just erase
         the overflow setting on the body, returning it to it's original value.
     */
-    $(id).foundation('reveal', 'open');
-    $('body').css('overflow', '');
+    $(id).foundation("reveal", "open");
+    $("body").css("overflow", "");
   }
-
 }

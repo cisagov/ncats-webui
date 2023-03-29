@@ -1,4 +1,3 @@
-
 <div class="row bottom-spacing">
   <div class="large-12 columns small-centered">
     <h1 class="text-center">{{ customer?._id }} Request Details</h1>
@@ -9,24 +8,23 @@
   <div class="large-6 columns">
     <table id="agency-details" width="100%">
       <CAPTION><EM>Agency Details</EM></CAPTION>
-      <thead>
-      </thead>
+      <thead></thead>
       <tbody>
         <tr>
           <td>Name</td>
-          <td>{{customer?.agency?.name}}</td>
+          <td>{{ customer?.agency?.name }}</td>
         </tr>
         <tr>
           <td>Acronym</td>
-          <td>{{customer?.agency?.acronym}}</td>
+          <td>{{ customer?.agency?.acronym }}</td>
         </tr>
         <tr>
           <td>Do Not Scan Before</td>
-          <td>{{customer?.period_start}} UTC</td>
+          <td>{{ customer?.period_start }} UTC</td>
         </tr>
         <tr>
           <td>Scheduler</td>
-          <td>{{customer?.scheduler}}</td>
+          <td>{{ customer?.scheduler }}</td>
         </tr>
       </tbody>
     </table>
@@ -44,9 +42,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let tally of tallyTableData;">
-          <td>{{tally[0]}}</td>
-          <td *ngFor="let value of tally[1]">{{value.toLocaleString('en')}}</td>
+        <tr *ngFor="let tally of tallyTableData">
+          <td>{{ tally[0] }}</td>
+          <td *ngFor="let value of tally[1]">
+            {{ value.toLocaleString("en") }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -65,10 +65,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let window of customer?.windows;">
-          <td>{{window.day}}</td>
-          <td>{{window.start}} UTC</td>
-          <td>{{window.duration}}</td>
+        <tr *ngFor="let window of customer?.windows">
+          <td>{{ window.day }}</td>
+          <td>{{ window.start }} UTC</td>
+          <td>{{ window.duration }}</td>
         </tr>
       </tbody>
     </table>
@@ -84,9 +84,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let limit of customer?.scan_limits;">
-          <td>{{limit.scanType}}</td>
-          <td>{{limit.concurrent}}</td>
+        <tr *ngFor="let limit of customer?.scan_limits">
+          <td>{{ limit.scanType }}</td>
+          <td>{{ limit.concurrent }}</td>
         </tr>
       </tbody>
     </table>
@@ -106,11 +106,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let contact of customer?.agency.contacts;">
-          <td>{{contact.type}}</td>
-          <td>{{contact.name}}</td>
-          <td>{{contact.email}}</td>
-          <td>{{contact.phone}}</td>
+        <tr *ngFor="let contact of customer?.agency.contacts">
+          <td>{{ contact.type }}</td>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone }}</td>
         </tr>
       </tbody>
     </table>
@@ -127,8 +127,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let network of customer?.networks;">
-          <td>{{network}}</td>
+        <tr *ngFor="let network of customer?.networks">
+          <td>{{ network }}</td>
         </tr>
       </tbody>
     </table>
@@ -143,8 +143,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let child of customer?.children;">
-          <td><a (click)="updateCustomerSubscription(child)">{{child}}</a></td>
+        <tr *ngFor="let child of customer?.children">
+          <td>
+            <a (click)="updateCustomerSubscription(child)">{{ child }}</a>
+          </td>
         </tr>
       </tbody>
     </table>

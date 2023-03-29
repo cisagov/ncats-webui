@@ -1,6 +1,6 @@
-import * as io from 'socket.io-client';
+import * as io from "socket.io-client";
 
-import { CyhyDataSource } from './cyhy-data-source';
+import { CyhyDataSource } from "./cyhy-data-source";
 
 export class CyhySocketIODataSource extends CyhyDataSource<string> {
   private _server: string;
@@ -10,7 +10,13 @@ export class CyhySocketIODataSource extends CyhyDataSource<string> {
   private _socket: SocketIOClient.Socket;
   private _connected: boolean;
 
-  constructor(name: string, socketio_server: string, socketio_room: string, data_event: string, data_request_event?: string) {
+  constructor(
+    name: string,
+    socketio_server: string,
+    socketio_room: string,
+    data_event: string,
+    data_request_event?: string
+  ) {
     super();
     this._name = name;
     this._server = socketio_server;
@@ -21,7 +27,6 @@ export class CyhySocketIODataSource extends CyhyDataSource<string> {
 
     this.initialize();
   }
-
 
   initialize(): void {
     this.update(null);
@@ -34,23 +39,22 @@ export class CyhySocketIODataSource extends CyhyDataSource<string> {
   }
 
   _joinSocketRooms(): void {
-    this._socket.emit('join', {'room':this._room});
+    this._socket.emit("join", { room: this._room });
 
     if (this._data_request_event) {
       this._socket.emit(this._data_request_event);
     }
 
-    console.log('connected (' + this._room + ')');
+    console.log("connected (" + this._room + ")");
   }
 
-
   _setupSocketHandlers(): void {
-    this._socket.on('connect', () => {
+    this._socket.on("connect", () => {
       this._joinSocketRooms();
       this._connected = true;
     });
 
-    this._socket.on('disconnect', () => {
+    this._socket.on("disconnect", () => {
       this._connected = false;
     });
 

@@ -1,14 +1,18 @@
 body {
-    background-color: #000;
-    color: #ccc;
+  background-color: #000;
+  color: #ccc;
 }
 
-h1, h2, h3, h4, h5 {
-    color:#ccc;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #ccc;
 }
 
 .waiting .c3-chart-arcs-title {
-    fill: #777;
+  fill: #777;
 }
 
 .c3-chart-arcs-title {
@@ -22,36 +26,38 @@ h1, h2, h3, h4, h5 {
 }
 
 .c3-chart-arc text {
-    fill: #000;
+  fill: #000;
 }
 
 .c3-areas path {
-/*    stroke: #ffffff !important;
+  /*    stroke: #ffffff !important;
     fill: #ffffff !important;
-*/    opacity: 0.5 !important;
+*/
+  opacity: 0.5 !important;
 }
 
 .c3-legend-item text {
-    fill: #ccc !important;
+  fill: #ccc !important;
 }
 
 .c3-bar {
-    fill: #ccc !important;
+  fill: #ccc !important;
 }
 
 .c3-axis text {
-    fill: #ccc !important;
+  fill: #ccc !important;
 }
 
-.c3 path, .c3 line {
+.c3 path,
+.c3 line {
   fill: none;
   stroke: #ccc;
 }
 
 .c3-region rect {
-    fill-opacity: 0.5 !important;
+  fill-opacity: 0.5 !important;
 }
 
 #bod_chart2 {
-    margin-top: 32px;
+  margin-top: 32px;
 }

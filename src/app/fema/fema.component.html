@@ -1,95 +1,102 @@
 <div class="row">
-    <div class="large-12 columns">
-        <h1>FEMA Report</h1>
-    </div>
+  <div class="large-12 columns">
+    <h1>FEMA Report</h1>
+  </div>
 </div>
 <div class="row">
-    <app-loading-circles *ngIf="isLoading"></app-loading-circles>
-    <div *ngIf="!isLoading" class="large-6 columns">
-      
-<h4 *ngIf="http_error?.length > 0"> {{http_error}} </h4>
-<br><br>
-<h3>Stakeholder Count by FEMA Region</h3>
-<table>
-  <thead>
-    <tr>
-			<th>FEMA Region</th>
-			<th>Number of Stakeholders</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td>Region I (CT, ME, MA, NH, RI, VT)</td> 
-  <td>{{ reportData[0][0] }}</td>
-  </tr>
-  <tr>
-  <td>Region II (NJ, NY, PR, VI)</td>
-  <td>{{ reportData[0][1] }} </td>
-  </tr>
-  <tr>
-  <td>Region III (DC, DE, MD, PA, VA, WV)</td> 
-  <td>{{ reportData[0][2] }} </td>
-  </tr>
-  <tr>
-  <td>Region IV (AL, FL, GA, KY, MS, NC, SC, TN)</td> 
-  <td>{{ reportData[0][3] }} </td>
-  </tr>
-  <tr>
-  <td>Region V (IL, IN, MI, MN, OH, WI)</td> 
-  <td>{{ reportData[0][4] }} </td>
-  </tr>
-  <tr>
-  <td>Region VI (AR, LA, NM, OK, TX)</td> 
-  <td>{{ reportData[0][5] }} </td>
-  </tr>
-  <tr>
-  <td>Region VII (IA, KS, MO, NE)</td> 
-  <td>{{ reportData[0][6] }} </td>
-  </tr>
-  <tr>
-  <td>Region VIII (CO, MT, ND, SD, UT, WY)</td> 
-  <td>{{ reportData[0][7] }} </td>
-  </tr>
-  <tr>
-  <td>Region IX (AZ, CA, HI, NV, GU, AS, MP, MH, FM)</td> 
-  <td>{{ reportData[0][8] }} </td>
-  </tr>
-  <tr>
-  <td>Region X (AK, ID, OR, WA)</td> 
-  <td>{{ reportData[0][9] }} </td>
-  </tr>
-</tbody>
-</table>
-</div>
+  <app-loading-circles *ngIf="isLoading"></app-loading-circles>
+  <div *ngIf="!isLoading" class="large-6 columns">
+    <h4 *ngIf="http_error?.length > 0">{{ http_error }}</h4>
+    <br /><br />
+    <h3>Stakeholder Count by FEMA Region</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>FEMA Region</th>
+          <th>Number of Stakeholders</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Region I (CT, ME, MA, NH, RI, VT)</td>
+          <td>{{ reportData[0][0] }}</td>
+        </tr>
+        <tr>
+          <td>Region II (NJ, NY, PR, VI)</td>
+          <td>{{ reportData[0][1] }}</td>
+        </tr>
+        <tr>
+          <td>Region III (DC, DE, MD, PA, VA, WV)</td>
+          <td>{{ reportData[0][2] }}</td>
+        </tr>
+        <tr>
+          <td>Region IV (AL, FL, GA, KY, MS, NC, SC, TN)</td>
+          <td>{{ reportData[0][3] }}</td>
+        </tr>
+        <tr>
+          <td>Region V (IL, IN, MI, MN, OH, WI)</td>
+          <td>{{ reportData[0][4] }}</td>
+        </tr>
+        <tr>
+          <td>Region VI (AR, LA, NM, OK, TX)</td>
+          <td>{{ reportData[0][5] }}</td>
+        </tr>
+        <tr>
+          <td>Region VII (IA, KS, MO, NE)</td>
+          <td>{{ reportData[0][6] }}</td>
+        </tr>
+        <tr>
+          <td>Region VIII (CO, MT, ND, SD, UT, WY)</td>
+          <td>{{ reportData[0][7] }}</td>
+        </tr>
+        <tr>
+          <td>Region IX (AZ, CA, HI, NV, GU, AS, MP, MH, FM)</td>
+          <td>{{ reportData[0][8] }}</td>
+        </tr>
+        <tr>
+          <td>Region X (AK, ID, OR, WA)</td>
+          <td>{{ reportData[0][9] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div *ngIf="!isLoading" class="large-12 columns">
-<h3>FEMA Stakeholder Details</h3>
-<table>
-	<thead>
-		<tr>
-			<th width="150">Region</th>
-			<th width="150">Name</th>
-			<th width="150">Sector</th>
-      <th width="150">City</th>
-      <th width="150">State</th>
-      <th width="150">First Scan</th>
-		</tr>
-	</thead>
-	<tbody>
-<tr *ngFor="let customer of reportData | slice:1; let i = index">
-  <td>{{ customer[0] }}</td>
-  <td><a target="_blank" href="/status/{{customer[6]}}">{{customer[1]}}</a></td>
-  <td>{{ customer[2] }}</td>
-  <td>{{ customer[3] }}</td>
-  <td>{{ customer[4] }}</td>
-  <td>{{ customer[5] }}</td>
-</tr>
-</tbody>
-</table>
+  <div *ngIf="!isLoading" class="large-12 columns">
+    <h3>FEMA Stakeholder Details</h3>
+    <table>
+      <thead>
+        <tr>
+          <th width="150">Region</th>
+          <th width="150">Name</th>
+          <th width="150">Sector</th>
+          <th width="150">City</th>
+          <th width="150">State</th>
+          <th width="150">First Scan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of reportData | slice : 1; let i = index">
+          <td>{{ customer[0] }}</td>
+          <td>
+            <a target="_blank" href="/status/{{ customer[6] }}">{{
+              customer[1]
+            }}</a>
+          </td>
+          <td>{{ customer[2] }}</td>
+          <td>{{ customer[3] }}</td>
+          <td>{{ customer[4] }}</td>
+          <td>{{ customer[5] }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-<div class="flash">
-    <a href="{{this.api_href}}/metrics/fema_csv" class="button tiny radius" title="Download FEMA CSV"><i class="fi-page-export-csv">​</i> ​Download FEMA Stats</a>
-</div>
-
+    <div class="flash">
+      <a
+        href="{{ this.api_href }}/metrics/fema_csv"
+        class="button tiny radius"
+        title="Download FEMA CSV"
+        ><i class="fi-page-export-csv">​</i> ​Download FEMA Stats</a
+      >
     </div>
+  </div>
 </div>

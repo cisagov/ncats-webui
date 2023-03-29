@@ -37,9 +37,15 @@ repos:
         args:
           - --config=.mdl_config.yaml
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.4
+    rev: v2.7.1
     hooks:
       - id: prettier
+        # This is a hack to get the most recent v2 release of prettier. The mirror
+        # is only offering v3 releases after the 2.7.1 release and v3 introduces
+        # formatting changes that cause failures when used with a JavaScript project
+        # as old as this one
+        additional_dependencies:
+          - "prettier@2.8.7"
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.29.0
     hooks:

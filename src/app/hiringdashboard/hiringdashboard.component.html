@@ -1,94 +1,140 @@
 <!DOCTYPE html>
 <html>
-<div class="hiringdashboard">
-  <div id="grid-container" class="grid-container">
-    <div class="grid-row">
-      <div class="item small-header-two">POSITION NUMBER</div>
-      <div class="item small-header-two">COMPONENT</div>
-      <div class="item1 weeks-in-stage">WEEKS IN STAGE</div>
-      <div class="item small-header-two">Entrance of Duty</div>
-      <div class="item1">TOTAL DAYS</div>
+  <div class="hiringdashboard">
+    <div id="grid-container" class="grid-container">
+      <div class="grid-row">
+        <div class="item small-header-two">POSITION NUMBER</div>
+        <div class="item small-header-two">COMPONENT</div>
+        <div class="item1 weeks-in-stage">WEEKS IN STAGE</div>
+        <div class="item small-header-two">Entrance of Duty</div>
+        <div class="item1">TOTAL DAYS</div>
+      </div>
+      <div class="grid-row">
+        <div class="item"></div>
+        <div class="item small-header-two"></div>
+        <div class="item small-header-two">
+          Manager <br />
+          Action<span class="tooltiptext">Position created</span>
+        </div>
+        <div class="item small-header-two">
+          HC <br />Received<span class="tooltiptext"
+            >Vacancy posted by sub-component</span
+          >
+        </div>
+        <div class="item small-header-two">
+          OPM <br />Received<span class="tooltiptext"
+            >Vacancy posted with OHC</span
+          >
+        </div>
+        <div class="item small-header-two">
+          Announce<span class="tooltiptext">Vacancy announced with OPM</span>
+        </div>
+        <div class="item small-header-two">
+          Cert <br />List<span class="tooltiptext"
+            >Waiting for eligibles from OPM</span
+          >
+        </div>
+        <div class="item small-header-two">
+          Final <br />Selection<span class="tooltiptext"
+            >Hiring managers review Eligibles</span
+          >
+        </div>
+        <div class="item small-header-two">
+          TJO<span class="tooltiptext">TJO sent to candidate</span>
+        </div>
+        <div class="item small-header-two">
+          Pre-security<span class="tooltiptext"
+            >Pre-employment requirements</span
+          >
+        </div>
+        <div class="item small-header-two">
+          Security<span class="tooltiptext">Pending security</span>
+        </div>
+        <div class="item small-header-two">
+          FJO<span class="tooltiptext">Final job offer</span>
+        </div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="billets" id="billets"></div>
+      <div id="avg" class="grid-row"></div>
     </div>
-    <div class="grid-row">
-      <div class="item"></div>
-      <div class="item small-header-two"></div>
-      <div class="item small-header-two">Manager <br> Action<span class="tooltiptext">Position created</span></div>
-      <div class="item small-header-two">HC <br>Received<span class="tooltiptext">Vacancy posted by sub-component</span></div>
-      <div class="item small-header-two">OPM <br>Received<span class="tooltiptext">Vacancy posted with OHC</span></div>
-      <div class="item small-header-two">Announce<span class="tooltiptext">Vacancy announced with OPM</span></div>
-      <div class="item small-header-two">Cert <br>List<span class="tooltiptext">Waiting for eligibles from OPM</span></div>
-      <div class="item small-header-two">Final <br>Selection<span class="tooltiptext">Hiring managers review Eligibles</span></div>
-      <div class="item small-header-two">TJO<span class="tooltiptext">TJO sent to candidate</span></div>
-      <div class="item small-header-two">Pre-security<span class="tooltiptext">Pre-employment requirements</span></div>
-      <div class="item small-header-two">Security<span class="tooltiptext">Pending security</span></div>
-      <div class="item small-header-two">FJO<span class="tooltiptext">Final job offer</span></div>
-      <div class="item"></div>
-      <div class="item"></div>
+    <div class="row full">
+      <div class="small-12 large-4 columns">
+        <div class="row">
+          <div class="small-12 columns small-header-two">BEHIND SCHEDULE</div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns text-center">
+            <svg width="150" height="64">
+              <g>
+                <rect width="150" height="100" fill="#ff6666"></rect>
+                <text
+                  id="behind_schedule"
+                  x="80px"
+                  y="1.33em"
+                  fill="black"
+                  text-anchor="middle"
+                  font-size="3em"
+                  font-family="univers"
+                >
+                  0
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="small-12 large-4 columns">
+        <div class="row">
+          <div class="small-12 columns small-header-two">AT RISK</div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns text-center">
+            <svg width="150" height="64">
+              <g>
+                <rect width="150" height="100" fill="#FFCC66"></rect>
+                <text
+                  id="at_risk"
+                  x="80px"
+                  y="1.33em"
+                  fill="black"
+                  text-anchor="middle"
+                  font-size="3em"
+                  font-family="univers"
+                >
+                  0
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="small-12 large-4 columns">
+        <div class="row">
+          <div class="small-12 columns small-header-two">ON TRACK</div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns text-center">
+            <svg width="150" height="64">
+              <g>
+                <rect width="150" height="100" fill="#66FF66"></rect>
+                <text
+                  id="on_track"
+                  x="80px"
+                  y="1.33em"
+                  fill="black"
+                  text-anchor="middle"
+                  font-size="3em"
+                  font-family="univers"
+                >
+                  0
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="billets" id="billets"></div>
-    <div id="avg" class="grid-row"></div>
   </div>
-  <div class="row full">
-    <div class="small-12 large-4 columns">
-      <div class="row">
-        <div class="small-12 columns small-header-two">
-          BEHIND SCHEDULE
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 columns text-center">
-          <svg width="150" height="64">
-            <g>
-              <rect width="150" height="100" fill="#ff6666"></rect>
-              <text id="behind_schedule" x="80px" y="1.33em" fill="black" text-anchor="middle" font-size="3em"
-                    font-family="univers">
-                0
-              </text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="small-12 large-4 columns">
-      <div class="row">
-        <div class="small-12 columns small-header-two">
-          AT RISK
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 columns text-center">
-          <svg width="150" height="64">
-            <g>
-              <rect width="150" height="100" fill="#FFCC66"></rect>
-              <text id="at_risk" x="80px" y="1.33em" fill="black" text-anchor="middle" font-size="3em"
-                    font-family="univers">
-                0
-              </text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="small-12 large-4 columns">
-      <div class="row">
-        <div class="small-12 columns small-header-two">
-          ON TRACK
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 columns text-center">
-          <svg width="150" height="64">
-            <g>
-              <rect width="150" height="100" fill="#66FF66"></rect>
-              <text id="on_track" x="80px" y="1.33em" fill="black" text-anchor="middle" font-size="3em"
-                    font-family="univers">
-                0
-              </text>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </html>
