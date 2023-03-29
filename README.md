@@ -94,8 +94,8 @@ root@container# ng g service my-service
 Ensure that the addition is added to the `app.module.ts` file with the rest of
 it's type.
 
-For more information on the usage of ng, visit
-[https://github.com/angular/angular-cli/](https://github.com/angular/angular-cli/)
+For more information on the usage of ng, visit the
+[Angular CLI repo][angular-cli-repo]
 
 ## Adding Packages ##
 
