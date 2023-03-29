@@ -25,3 +25,4 @@ RUN make gulp
 EXPOSE 4200 9876
 
 ENTRYPOINT ["./entrypoint.sh"]
+CMD ["start"]
