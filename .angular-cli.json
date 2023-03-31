@@ -1,13 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "project": {
-    "version": "1.0.0-beta.25.5",
-    "name": "exam"
-  },
+  "addons": [],
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico",
@@ -15,27 +10,34 @@
         "config/config.json",
         "config/app.version"
       ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "mobile": false,
-      "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "index": "index.html",
+      "main": "main.ts",
+      "mobile": false,
+      "outDir": "dist",
+      "polyfills": "polyfills.ts",
+      "prefix": "app",
+      "root": "src",
+      "scripts": [],
+      "styles": [
+        "styles.css"
+      ],
+      "test": "test.ts",
+      "testTsconfig": "tsconfig.spec.json",
+      "tsconfig": "tsconfig.app.json"
     }
   ],
-  "addons": [],
-  "packages": [],
+  "defaults": {
+    "component": {
+      "inlineTemplate": false,
+      "spec": true
+    },
+    "styleExt": "css"
+  },
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
@@ -52,16 +54,14 @@
       "project": "e2e/tsconfig.e2e.json"
     }
   ],
+  "packages": [],
+  "project": {
+    "name": "exam",
+    "version": "1.0.0-beta.25.5"
+  },
   "test": {
     "karma": {
       "config": "./karma.conf.js"
-    }
-  },
-  "defaults": {
-    "styleExt": "css",
-    "component": {
-      "inlineTemplate": false,
-      "spec": true
     }
   }
 }

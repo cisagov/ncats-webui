@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import * as cookies from 'js-cookie';
+import * as cookies from "js-cookie";
 
 @Injectable()
 export class CookieService {
-
   public static readonly CENSOR_NAMES: string = "censor_names";
   public static readonly CYCLE_PAGES: string = "cycle_pages";
   public static readonly CYCLE_LIST: string = "cycle_list";
@@ -14,10 +13,10 @@ export class CookieService {
   public static readonly HORIZONTAL_UNDERSCAN: string = "horizontal_underscan";
   public static readonly ELECTION_DASHBOARD: string = "election_data";
 
-  constructor() { }
+  constructor() {}
 
   public get(cookie: string, _default?: string): string {
-    _default = _default || '';
+    _default = _default || "";
     let result = cookies.get(cookie) || _default;
     return result;
   }
@@ -30,8 +29,8 @@ export class CookieService {
 
   public set(cookie: string, value: any, options?: Object): void {
     options = options || {};
-    options['path'] = options['path'] || '/';
+    options["path"] = options["path"] || "/";
 
-    cookies.set(cookie, value, options)
+    cookies.set(cookie, value, options);
   }
 }

@@ -1,145 +1,205 @@
 <div *ngIf="queryResult">
   <div class="row">
-      <div class="large-12 columns">
-    <h1>Metrics Results</h1>
-      </div>
+    <div class="large-12 columns">
+      <h1>Metrics Results</h1>
+    </div>
   </div>
   <div class="row">
-  <div class="large-12 columns">
-  <p *ngIf="queryResult.err">
-    {{queryResult.err}}
-  </p>
-  <p *ngIf="!queryResult.err">
-    For the Dates {{queryResult.START}} to {{queryResult.END}}:
-  </p>
+    <div class="large-12 columns">
+      <p *ngIf="queryResult.err">
+        {{ queryResult.err }}
+      </p>
+      <p *ngIf="!queryResult.err">
+        For the Dates {{ queryResult.START }} to {{ queryResult.END }}:
+      </p>
 
-  <p *ngIf="queryResult.VULN_TICKET">
-  {{queryResult.VULN_TICKET.severity_level}} Vulnerability Tickets<br>
-  =====================
-    <br>{{queryResult.VULN_TICKET.severity_level}} Vulnerability tickets opened before {{queryResult.START}} and still open now: {{queryResult.VULN_TICKET.opened_before_and_still_open}}
-    <br>{{queryResult.VULN_TICKET.severity_level}} Vulnerability tickets opened before {{queryResult.START}} and closed by {{queryResult.END}}: {{queryResult.VULN_TICKET.opened_before_and_closed_during}}
-    <br>{{queryResult.VULN_TICKET.severity_level}} Vulnerability tickets opened between {{queryResult.START}} and {{queryResult.END}}, and still open now: {{queryResult.VULN_TICKET.opened_during_and_still_open}}
-    <br>{{queryResult.VULN_TICKET.severity_level}} Vulnerability tickets opened after {{queryResult.START}} and closed by {{queryResult.END}}: {{queryResult.VULN_TICKET.opened_during_and_closed_during}}
-    <br>{{queryResult.VULN_TICKET.severity_level}} Vulnerability tickets opened between {{queryResult.START}} and {{queryResult.END}}, and closed after {{queryResult.END}}: {{queryResult.VULN_TICKET.opened_during_and_closed_after}}
-    <br>False positives tickets opened before {{queryResult.START}}: {{queryResult.VULN_TICKET.fp_before}}
-    <br>False positives tickets opened between {{queryResult.START}} and {{queryResult.END}}: {{queryResult.VULN_TICKET.fp_during}}
-    <br>False positives tickets opened after {{queryResult.END}}: {{queryResult.VULN_TICKET.fp_after}}
-  <br><br>{{queryResult.VULN_TICKET.description}}
-  </p>
+      <p *ngIf="queryResult.VULN_TICKET">
+        {{ queryResult.VULN_TICKET.severity_level }} Vulnerability Tickets<br />
+        =====================
+        <br />{{ queryResult.VULN_TICKET.severity_level }} Vulnerability tickets
+        opened before {{ queryResult.START }} and still open now:
+        {{ queryResult.VULN_TICKET.opened_before_and_still_open }} <br />{{
+          queryResult.VULN_TICKET.severity_level
+        }}
+        Vulnerability tickets opened before {{ queryResult.START }} and closed
+        by {{ queryResult.END }}:
+        {{ queryResult.VULN_TICKET.opened_before_and_closed_during }} <br />{{
+          queryResult.VULN_TICKET.severity_level
+        }}
+        Vulnerability tickets opened between {{ queryResult.START }} and
+        {{ queryResult.END }}, and still open now:
+        {{ queryResult.VULN_TICKET.opened_during_and_still_open }} <br />{{
+          queryResult.VULN_TICKET.severity_level
+        }}
+        Vulnerability tickets opened after {{ queryResult.START }} and closed by
+        {{ queryResult.END }}:
+        {{ queryResult.VULN_TICKET.opened_during_and_closed_during }} <br />{{
+          queryResult.VULN_TICKET.severity_level
+        }}
+        Vulnerability tickets opened between {{ queryResult.START }} and
+        {{ queryResult.END }}, and closed after {{ queryResult.END }}:
+        {{ queryResult.VULN_TICKET.opened_during_and_closed_after }} <br />False
+        positives tickets opened before {{ queryResult.START }}:
+        {{ queryResult.VULN_TICKET.fp_before }} <br />False positives tickets
+        opened between {{ queryResult.START }} and {{ queryResult.END }}:
+        {{ queryResult.VULN_TICKET.fp_during }} <br />False positives tickets
+        opened after {{ queryResult.END }}:
+        {{ queryResult.VULN_TICKET.fp_after }} <br /><br />{{
+          queryResult.VULN_TICKET.description
+        }}
+      </p>
 
-  <p *ngIf="queryResult.TOP_VULNS">
-  Top 10 {{queryResult.TOP_VULNS.level}} Ticketed Vulnerabilities<br>
-  {{queryResult.TOP_VULNS.level}} Vulnerability Tickets Opened: {{queryResult.TOP_VULNS.total}}<br>
-  =====================
-  <span *ngFor="let i of queryResult.TOP_VULNS.data">
-      <br>{{i.vuln}}: {{i.count}} ({{i.pct}}%)
-  </span>
-  <br><br>{{queryResult.TOP_VULNS.description}}
-  </p>
+      <p *ngIf="queryResult.TOP_VULNS">
+        Top 10 {{ queryResult.TOP_VULNS.level }} Ticketed Vulnerabilities<br />
+        {{ queryResult.TOP_VULNS.level }} Vulnerability Tickets Opened:
+        {{ queryResult.TOP_VULNS.total }}<br />
+        =====================
+        <span *ngFor="let i of queryResult.TOP_VULNS.data">
+          <br />{{ i.vuln }}: {{ i.count }} ({{ i.pct }}%)
+        </span>
+        <br /><br />{{ queryResult.TOP_VULNS.description }}
+      </p>
 
-  <p *ngIf="queryResult.TOP_OS">
-  Top 10 Operating System Fingerprints<br>
-  Total Fingerprinted Hosts: {{queryResult.TOP_OS.total}}<br>
-  =====================
-  <span *ngFor="let i of queryResult.TOP_OS.data">
-      <br>{{i.OS}}: {{i.count}} ({{i.pct}}%)
-  </span>
-  <br><br>{{queryResult.TOP_OS.description}}
-  </p>
+      <p *ngIf="queryResult.TOP_OS">
+        Top 10 Operating System Fingerprints<br />
+        Total Fingerprinted Hosts: {{ queryResult.TOP_OS.total }}<br />
+        =====================
+        <span *ngFor="let i of queryResult.TOP_OS.data">
+          <br />{{ i.OS }}: {{ i.count }} ({{ i.pct }}%)
+        </span>
+        <br /><br />{{ queryResult.TOP_OS.description }}
+      </p>
 
-  <p *ngIf="queryResult.TOPVULNSERV">
-  Top 10 Vulnerable Services<br>
-  Total Vulnerable Services: {{queryResult.TOPVULNSERV.total}}<br>
-  =====================
-  <span *ngFor="let i of queryResult.TOPVULNSERV.data">
-      <br>{{i.service}}: {{i.count}} ({{i.pct}}%)
-  </span>
-  <br><br>{{queryResult.TOPVULNSERV.description}}
-  </p>
+      <p *ngIf="queryResult.TOPVULNSERV">
+        Top 10 Vulnerable Services<br />
+        Total Vulnerable Services: {{ queryResult.TOPVULNSERV.total }}<br />
+        =====================
+        <span *ngFor="let i of queryResult.TOPVULNSERV.data">
+          <br />{{ i.service }}: {{ i.count }} ({{ i.pct }}%)
+        </span>
+        <br /><br />{{ queryResult.TOPVULNSERV.description }}
+      </p>
 
-  <p *ngIf="queryResult.TOPSERV">
-  Top 10 Services<br>
-  Total Services: {{queryResult.TOPSERV.total}}<br>
-  =====================
-  <span *ngFor="let i of queryResult.TOPSERV.data">
-      <br>{{i.service}}: {{i.count}} ({{i.pct}}%)
-  </span>
-  <br><br>{{queryResult.TOPSERV.description}}
-  </p>
+      <p *ngIf="queryResult.TOPSERV">
+        Top 10 Services<br />
+        Total Services: {{ queryResult.TOPSERV.total }}<br />
+        =====================
+        <span *ngFor="let i of queryResult.TOPSERV.data">
+          <br />{{ i.service }}: {{ i.count }} ({{ i.pct }}%)
+        </span>
+        <br /><br />{{ queryResult.TOPSERV.description }}
+      </p>
 
-  <p *ngIf="queryResult.NUMORGS">
-    Total stakeholder organizations scanned: {{queryResult.NUMORGS.total_orgs}}<br>
-  =====================
-    <br>* FEDERAL stakeholder organizations: {{queryResult.NUMORGS.fed_orgs}} ({{queryResult.NUMORGS.fed_orgs_pct}}%)
-    <br>* SLTT stakeholder organizations: {{queryResult.NUMORGS.sltt_orgs}} ({{queryResult.NUMORGS.sltt_orgs_pct}}%)
-  <br>* PRIVATE stakeholder organizations: {{queryResult.NUMORGS.private_orgs}} ({{queryResult.NUMORGS.private_orgs_pct}}%)
-  <br><br>{{queryResult.NUMORGS.description}}
-  </p>
+      <p *ngIf="queryResult.NUMORGS">
+        Total stakeholder organizations scanned:
+        {{ queryResult.NUMORGS.total_orgs }}<br />
+        =====================
+        <br />* FEDERAL stakeholder organizations:
+        {{ queryResult.NUMORGS.fed_orgs }} ({{
+          queryResult.NUMORGS.fed_orgs_pct
+        }}%) <br />* SLTT stakeholder organizations:
+        {{ queryResult.NUMORGS.sltt_orgs }} ({{
+          queryResult.NUMORGS.sltt_orgs_pct
+        }}%) <br />* PRIVATE stakeholder organizations:
+        {{ queryResult.NUMORGS.private_orgs }} ({{
+          queryResult.NUMORGS.private_orgs_pct
+        }}%) <br /><br />{{ queryResult.NUMORGS.description }}
+      </p>
 
-  <p *ngIf="queryResult.NUMADDRHOSTS">
-    Total addresses scanned: {{queryResult.NUMADDRHOSTS.total_addr}}<br>
-  =====================
-    <br>* Total FEDERAL addresses: {{queryResult.NUMADDRHOSTS.fed_addr}} ({{queryResult.NUMADDRHOSTS.fed_addr_pct}}%)
-    <br>* Total SLTT addresses: {{queryResult.NUMADDRHOSTS.sltt_addr}} ({{queryResult.NUMADDRHOSTS.sltt_addr_pct}}%)
-  <br>* Total PRIVATE addresses: {{queryResult.NUMADDRHOSTS.private_addr}} ({{queryResult.NUMADDRHOSTS.private_addr_pct}}%)
-  <br><br>{{queryResult.NUMADDRHOSTS.description1}}
-  <br><br>
-    Total hosts scanned: {{queryResult.NUMADDRHOSTS.total_hosts}}<br>
-  =====================
-    <br>* Total FEDERAL hosts: {{queryResult.NUMADDRHOSTS.fed_hosts_scanned}} ({{queryResult.NUMADDRHOSTS.fed_hosts_scanned_pct}}%)
-    <br>* Total SLTT hosts: {{queryResult.NUMADDRHOSTS.sltt_hosts_scanned}} ({{queryResult.NUMADDRHOSTS.sltt_hosts_scanned_pct}}%)
-  <br>* Total PRIVATE hosts: {{queryResult.NUMADDRHOSTS.private_hosts_scanned}} ({{queryResult.NUMADDRHOSTS.private_hosts_scanned_pct}}%)
-  <br><br>{{queryResult.NUMADDRHOSTS.description2}}
-  <br><br>
-    Total vulnerable hosts detected during scans: {{queryResult.NUMADDRHOSTS.total_vuln_hosts}}<br>
-  =====================
-    <br>* Total FEDERAL vulnerable hosts: {{queryResult.NUMADDRHOSTS.fed_vuln_hosts}} ({{queryResult.NUMADDRHOSTS.fed_vuln_hosts_pct}}%)
-    <br>* Total SLTT vulnerable hosts: {{queryResult.NUMADDRHOSTS.sltt_vuln_hosts}} ({{queryResult.NUMADDRHOSTS.sltt_vuln_hosts_pct}}%)
-  <br>* Total PRIVATE vulnerable hosts: {{queryResult.NUMADDRHOSTS.private_vuln_hosts}} ({{queryResult.NUMADDRHOSTS.private_vuln_hosts_pct}}%)
-  <br><br>{{queryResult.NUMADDRHOSTS.description4}}
-  </p>
+      <p *ngIf="queryResult.NUMADDRHOSTS">
+        Total addresses scanned: {{ queryResult.NUMADDRHOSTS.total_addr }}<br />
+        =====================
+        <br />* Total FEDERAL addresses:
+        {{ queryResult.NUMADDRHOSTS.fed_addr }} ({{
+          queryResult.NUMADDRHOSTS.fed_addr_pct
+        }}%) <br />* Total SLTT addresses:
+        {{ queryResult.NUMADDRHOSTS.sltt_addr }} ({{
+          queryResult.NUMADDRHOSTS.sltt_addr_pct
+        }}%) <br />* Total PRIVATE addresses:
+        {{ queryResult.NUMADDRHOSTS.private_addr }} ({{
+          queryResult.NUMADDRHOSTS.private_addr_pct
+        }}%) <br /><br />{{ queryResult.NUMADDRHOSTS.description1 }}
+        <br /><br />
+        Total hosts scanned: {{ queryResult.NUMADDRHOSTS.total_hosts }}<br />
+        =====================
+        <br />* Total FEDERAL hosts:
+        {{ queryResult.NUMADDRHOSTS.fed_hosts_scanned }} ({{
+          queryResult.NUMADDRHOSTS.fed_hosts_scanned_pct
+        }}%) <br />* Total SLTT hosts:
+        {{ queryResult.NUMADDRHOSTS.sltt_hosts_scanned }} ({{
+          queryResult.NUMADDRHOSTS.sltt_hosts_scanned_pct
+        }}%) <br />* Total PRIVATE hosts:
+        {{ queryResult.NUMADDRHOSTS.private_hosts_scanned }} ({{
+          queryResult.NUMADDRHOSTS.private_hosts_scanned_pct
+        }}%) <br /><br />{{ queryResult.NUMADDRHOSTS.description2 }}
+        <br /><br />
+        Total vulnerable hosts detected during scans:
+        {{ queryResult.NUMADDRHOSTS.total_vuln_hosts }}<br />
+        =====================
+        <br />* Total FEDERAL vulnerable hosts:
+        {{ queryResult.NUMADDRHOSTS.fed_vuln_hosts }} ({{
+          queryResult.NUMADDRHOSTS.fed_vuln_hosts_pct
+        }}%) <br />* Total SLTT vulnerable hosts:
+        {{ queryResult.NUMADDRHOSTS.sltt_vuln_hosts }} ({{
+          queryResult.NUMADDRHOSTS.sltt_vuln_hosts_pct
+        }}%) <br />* Total PRIVATE vulnerable hosts:
+        {{ queryResult.NUMADDRHOSTS.private_vuln_hosts }} ({{
+          queryResult.NUMADDRHOSTS.private_vuln_hosts_pct
+        }}%) <br /><br />{{ queryResult.NUMADDRHOSTS.description4 }}
+      </p>
 
-  <p *ngIf="queryResult.NUMREPORTS">
-    Total CyHy reports generated: {{queryResult.NUMREPORTS.total_reports}}<br>
-  =====================
-    <br>* FEDERAL CyHy reports: {{queryResult.NUMREPORTS.fed_reports}} ({{queryResult.NUMREPORTS.fed_reports_pct}}%)
-  <br>* SLTT CyHy reports: {{queryResult.NUMREPORTS.sltt_reports}} ({{queryResult.NUMREPORTS.sltt_reports_pct}}%)
-  <br>* PRIVATE CyHy reports: {{queryResult.NUMREPORTS.private_reports}} ({{queryResult.NUMREPORTS.private_reports_pct}}%)
-  <br><br>{{queryResult.NUMREPORTS.description}}
-  </p>
+      <p *ngIf="queryResult.NUMREPORTS">
+        Total CyHy reports generated: {{ queryResult.NUMREPORTS.total_reports
+        }}<br />
+        =====================
+        <br />* FEDERAL CyHy reports:
+        {{ queryResult.NUMREPORTS.fed_reports }} ({{
+          queryResult.NUMREPORTS.fed_reports_pct
+        }}%) <br />* SLTT CyHy reports:
+        {{ queryResult.NUMREPORTS.sltt_reports }} ({{
+          queryResult.NUMREPORTS.sltt_reports_pct
+        }}%) <br />* PRIVATE CyHy reports:
+        {{ queryResult.NUMREPORTS.private_reports }} ({{
+          queryResult.NUMREPORTS.private_reports_pct
+        }}%) <br /><br />{{ queryResult.NUMREPORTS.description }}
+      </p>
 
-  <p *ngIf="queryResult.AVGCVSS">
-    Average CVSS score for hosts with vulnerabilities: {{queryResult.AVGCVSS.overall_cvss}}<br>
-  =====================
-    <br>* FEDERAL average CVSS score: {{queryResult.AVGCVSS.fed_cvss}}
-  <br>* SLTT average CVSS score: {{queryResult.AVGCVSS.sltt_cvss}}
-  <br>* PRIVATE average CVSS score: {{queryResult.AVGCVSS.private_cvss}}
-  <br><br>{{queryResult.AVGCVSS.description}}
-  </p>
+      <p *ngIf="queryResult.AVGCVSS">
+        Average CVSS score for hosts with vulnerabilities:
+        {{ queryResult.AVGCVSS.overall_cvss }}<br />
+        =====================
+        <br />* FEDERAL average CVSS score: {{ queryResult.AVGCVSS.fed_cvss }}
+        <br />* SLTT average CVSS score: {{ queryResult.AVGCVSS.sltt_cvss }}
+        <br />* PRIVATE average CVSS score:
+        {{ queryResult.AVGCVSS.private_cvss }} <br /><br />{{
+          queryResult.AVGCVSS.description
+        }}
+      </p>
 
-  <p *ngIf="queryResult.UVULNS">
-  <span *ngFor="let i of queryResult.UVULNS.data">
-      <br>{{i.type}} unique vulnerabilities discovered: {{i.total}}<br>
-    =====================
-      <br>* Critical: {{i.crit}} ({{i.crit_pct}}%)
-    <br>* High: {{i.high}} ({{i.high_pct}}%)
-    <br>* Medium: {{i.med}} ({{i.med_pct}}%)
-    <br>* Low: {{i.low}} ({{i.low_pct}}%)
-</span>
-  <br><br>{{queryResult.UVULNS.description}}
-  </p>
+      <p *ngIf="queryResult.UVULNS">
+        <span *ngFor="let i of queryResult.UVULNS.data">
+          <br />{{ i.type }} unique vulnerabilities discovered: {{ i.total
+          }}<br />
+          =====================
+          <br />* Critical: {{ i.crit }} ({{ i.crit_pct }}%) <br />* High:
+          {{ i.high }} ({{ i.high_pct }}%) <br />* Medium: {{ i.med }} ({{
+            i.med_pct
+          }}%) <br />* Low: {{ i.low }} ({{ i.low_pct }}%)
+        </span>
+        <br /><br />{{ queryResult.UVULNS.description }}
+      </p>
 
-  <p *ngIf="queryResult.NVULNDET">
-  <span *ngFor="let i of queryResult.NVULNDET.data">
-      <br>{{i.type}} vulnerabilities tickets opened: {{i.total}}<br>
-    =====================
-      <br>* Critical: {{i.crit}} ({{i.crit_pct}}%)
-    <br>* High: {{i.high}} ({{i.high_pct}}%)
-    <br>* Medium: {{i.med}} ({{i.med_pct}}%)
-    <br>* Low: {{i.low}} ({{i.low_pct}}%)
-</span>
-  <br><br>{{queryResult.NVULNDET.description}}
-  </p>
-  </div>
+      <p *ngIf="queryResult.NVULNDET">
+        <span *ngFor="let i of queryResult.NVULNDET.data">
+          <br />{{ i.type }} vulnerabilities tickets opened: {{ i.total }}<br />
+          =====================
+          <br />* Critical: {{ i.crit }} ({{ i.crit_pct }}%) <br />* High:
+          {{ i.high }} ({{ i.high_pct }}%) <br />* Medium: {{ i.med }} ({{
+            i.med_pct
+          }}%) <br />* Low: {{ i.low }} ({{ i.low_pct }}%)
+        </span>
+        <br /><br />{{ queryResult.NVULNDET.description }}
+      </p>
+    </div>
   </div>
 </div>

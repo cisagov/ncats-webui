@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { DashboardComponent } from './dashboard.component';
+import { DashboardComponent } from "./dashboard.component";
 
-describe('Component: Dashboard', () => {
+describe("Component: Dashboard", () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
-    })
-    .compileComponents();
+      declarations: [DashboardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('Component: Dashboard', () => {
     fixture.detectChanges();
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(component).toBeTruthy();
   });
 });

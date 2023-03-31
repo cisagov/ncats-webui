@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "baseUrl": "",
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
     "lib": [
       "es6",
       "dom"
     ],
-    "outDir": "../out-tsc/app",
     "module": "es6",
-    "baseUrl": "",
+    "moduleResolution": "node",
+    "outDir": "../out-tsc/app",
+    "sourceMap": true,
+    "target": "es5",
     "types": []
   },
   "exclude": [

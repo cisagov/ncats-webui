@@ -2,51 +2,113 @@
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a routerLinkActive="active" routerLink="/">NCATS: Cyber Hygiene</a></h1>
+        <h1>
+          <a routerLinkActive="active" routerLink="/">NCATS: Cyber Hygiene</a>
+        </h1>
       </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a><span>Menu</span></a></li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon">
+        <a><span>Menu</span></a>
+      </li>
     </ul>
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="divider"></li>
         <li>
-            <a routerLinkActive="active" routerLink="/rr">System</a>
+          <a routerLinkActive="active" routerLink="/rr">System</a>
         </li>
         <li class="divider"></li>
         <li [hidden]="!navbarConfig.monitoringDropdown" class="has-dropdown">
-            <a>Monitoring</a>
-            <ul class="dropdown">
-              <li [hidden]="!navbarConfig.status"><a routerLinkActive="active" routerLink="/status">Scan Progress</a></li>
-              <li [hidden]="!navbarConfig.dashboard"><a routerLinkActive="active" routerLink="/dashboard">Dashboard</a></li>
-              <li [hidden]="!navbarConfig.history"><a routerLinkActive="active" routerLink="/history">Scan History (defunct)</a></li>
- 	            <li [hidden]="!navbarConfig.hiringdashboard"><a routerLinkActive="active" routerLink="/hiringdashboard">Hiring Dashboard</a></li>
-            </ul>
+          <a>Monitoring</a>
+          <ul class="dropdown">
+            <li [hidden]="!navbarConfig.status">
+              <a routerLinkActive="active" routerLink="/status"
+                >Scan Progress</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.dashboard">
+              <a routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+            </li>
+            <li [hidden]="!navbarConfig.history">
+              <a routerLinkActive="active" routerLink="/history"
+                >Scan History (defunct)</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.hiringdashboard">
+              <a routerLinkActive="active" routerLink="/hiringdashboard"
+                >Hiring Dashboard</a
+              >
+            </li>
+          </ul>
         </li>
         <li class="divider"></li>
         <li [hidden]="!navbarConfig.mapsDropdown" class="has-dropdown">
-            <a>Maps</a>
-            <ul class="dropdown">
-              <li [hidden]="!navbarConfig.hostmap"><a routerLinkActive="active" routerLink="/maps/hosts">Host Locations</a></li>
-              <li [hidden]="!navbarConfig.scanmap"><a routerLinkActive="active" routerLink="/maps/running">Running Scans</a></li>
-              <li [hidden]="!navbarConfig.vulnerabilitymap"><a routerLinkActive="active" routerLink="/maps/active">Active Vulnerabilities</a></li>
-            </ul>
+          <a>Maps</a>
+          <ul class="dropdown">
+            <li [hidden]="!navbarConfig.hostmap">
+              <a routerLinkActive="active" routerLink="/maps/hosts"
+                >Host Locations</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.scanmap">
+              <a routerLinkActive="active" routerLink="/maps/running"
+                >Running Scans</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.vulnerabilitymap">
+              <a routerLinkActive="active" routerLink="/maps/active"
+                >Active Vulnerabilities</a
+              >
+            </li>
+          </ul>
         </li>
         <li class="divider"></li>
         <li [hidden]="!navbarConfig.reportsDropdown" class="has-dropdown">
-            <a>Reports</a>
-            <ul class="dropdown">
-              <li [hidden]="!navbarConfig.firstseenvulns"><a routerLinkActive="active" routerLink="/dashboard/firstseen">First-Seen Vulnerabilities</a></li>
-              <li [hidden]="!navbarConfig.metrics"><a routerLinkActive="active" routerLink="/metrics">Metrics Query</a></li>
-              <li [hidden]="!navbarConfig.weeklytickets"><a routerLinkActive="active" routerLink="/metrics/weekly">Weekly Tickets</a></li>
-			        <li [hidden]="!navbarConfig.riskrating"><a routerLinkActive="active" routerLink="/metrics/risk">Risk Rating</a></li>
-              <li [hidden]="!navbarConfig.fema"><a routerLinkActive="active" routerLink="/metrics/fema">FEMA</a></li>
-              <li [hidden]="!navbarConfig.congressional"><a routerLinkActive="active" routerLink="/metrics/congressional">Congressional</a></li>
-              <li [hidden]="!navbarConfig.stakeholders"><a routerLinkActive="active" routerLink="/stakeholders">Stakeholder Info</a></li>
-              <li [hidden]="!navbarConfig.cybex"><a routerLinkActive="active" routerLink="/cybex">Cyber Exposure</a></li>
-              <li [hidden]="!navbarConfig.bod"><a routerLinkActive="active" routerLink="/bod" >BOD</a></li>
-            </ul>
+          <a>Reports</a>
+          <ul class="dropdown">
+            <li [hidden]="!navbarConfig.firstseenvulns">
+              <a routerLinkActive="active" routerLink="/dashboard/firstseen"
+                >First-Seen Vulnerabilities</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.metrics">
+              <a routerLinkActive="active" routerLink="/metrics"
+                >Metrics Query</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.weeklytickets">
+              <a routerLinkActive="active" routerLink="/metrics/weekly"
+                >Weekly Tickets</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.riskrating">
+              <a routerLinkActive="active" routerLink="/metrics/risk"
+                >Risk Rating</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.fema">
+              <a routerLinkActive="active" routerLink="/metrics/fema">FEMA</a>
+            </li>
+            <li [hidden]="!navbarConfig.congressional">
+              <a routerLinkActive="active" routerLink="/metrics/congressional"
+                >Congressional</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.stakeholders">
+              <a routerLinkActive="active" routerLink="/stakeholders"
+                >Stakeholder Info</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.cybex">
+              <a routerLinkActive="active" routerLink="/cybex"
+                >Cyber Exposure</a
+              >
+            </li>
+            <li [hidden]="!navbarConfig.bod">
+              <a routerLinkActive="active" routerLink="/bod">BOD</a>
+            </li>
+          </ul>
         </li>
         <li class="divider"></li>
         <li class="has-dropdown">
@@ -58,11 +120,22 @@
         </li>
         <li class="divider"></li>
         <li [hidden]="!navbarConfig.preferences" id="preferences">
-          <a routerLinkActive="active" routerLink="/prefs" title="Change site preferences"><i [ngClass]="{'settings-warning': !cyhyDataService.isDataGood()}" class="step fi-widget size-48">​</i>​</a>
+          <a
+            routerLinkActive="active"
+            routerLink="/prefs"
+            title="Change site preferences"
+            ><i
+              [ngClass]="{ 'settings-warning': !cyhyDataService.isDataGood() }"
+              class="step fi-widget size-48"
+              >​</i
+            >​</a
+          >
         </li>
         <li class="divider"></li>
         <li id="fullscreen">
-          <a title="Toggle fullscreen view"><i class="step fi-monitor size-48">​</i>​</a>
+          <a title="Toggle fullscreen view"
+            ><i class="step fi-monitor size-48">​</i>​</a
+          >
         </li>
       </ul>
     </section>

@@ -1,97 +1,115 @@
 <div class="row">
-    <div class="large-12 columns">
-        <h1>Risk Rating Report</h1>
-    </div>
+  <div class="large-12 columns">
+    <h1>Risk Rating Report</h1>
+  </div>
 </div>
 <div class="row">
-    <app-loading-circles *ngIf="isLoading"></app-loading-circles>
-    <div *ngIf="!isLoading" class="large-12 columns">
-      
-<h4 *ngIf="http_error?.length > 0"> {{http_error}} </h4>
+  <app-loading-circles *ngIf="isLoading"></app-loading-circles>
+  <div *ngIf="!isLoading" class="large-12 columns">
+    <h4 *ngIf="http_error?.length > 0">{{ http_error }}</h4>
 
-<br><br>
-<h3>Average Number of Vulnerabilities Score</h3>
-<p>Summation of weighted Critical, High, Medium, and Low vulnerability counts, ranked highest to lowest.</p>
-<table>
-	<thead>
-		<tr>
-			<th width="150">Acronym</th>
-			<th width="150">Name</th>
-			<th width="150">Score</th>
-		</tr>
-	</thead>
-	<tbody>
-<tr *ngFor="let item of average_vulnerability_ranking">
-  <td><a target="_blank" href="/status/{{item[0]}}">{{item[0]}}</a></td>
-  <td>{{ item[1] }}</td>
-  <td>{{ item[2] }}</td>
-  
-</tr>
-</tbody>
-</table>
+    <br /><br />
+    <h3>Average Number of Vulnerabilities Score</h3>
+    <p>
+      Summation of weighted Critical, High, Medium, and Low vulnerability
+      counts, ranked highest to lowest.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th width="150">Acronym</th>
+          <th width="150">Name</th>
+          <th width="150">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of average_vulnerability_ranking">
+          <td>
+            <a target="_blank" href="/status/{{ item[0] }}">{{ item[0] }}</a>
+          </td>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-<br><br>
+    <br /><br />
 
-<h3>Average Max Age of Vulnerabilities Alive Score</h3>
-<p>Summation of weighted Critical, High, Medium, and Low max vulnerabilities ages, ranked highest to lowest.</p>
-<table>
-	<thead>
-		<tr>
-			<th width="150">Acronym</th>
-			<th width="150">Name</th>
-			<th width="150">Score</th>
-		</tr>
-	</thead>
-	<tbody>
-<tr *ngFor="let item of avg_max_vuln_alive_score">
-  <td><a target="_blank" href="/status/{{item[0]}}">{{item[0]}}</a></td>
-  <td>{{ item[1] }}</td>
-  <td>{{ item[2] }}</td>
-</tr>
-</tbody>
-</table>
+    <h3>Average Max Age of Vulnerabilities Alive Score</h3>
+    <p>
+      Summation of weighted Critical, High, Medium, and Low max vulnerabilities
+      ages, ranked highest to lowest.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th width="150">Acronym</th>
+          <th width="150">Name</th>
+          <th width="150">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of avg_max_vuln_alive_score">
+          <td>
+            <a target="_blank" href="/status/{{ item[0] }}">{{ item[0] }}</a>
+          </td>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-<br><br>
+    <br /><br />
 
-<h3>Average Max Time to Mitigate Vulnerabilities Score</h3>
-<p>Summation of weighted Critical, High, Medium, and Low max time to mitigate vulnerabilities, ranked highest to lowest.</p>
-<table>
-	<thead>
-		<tr>
-			<th width="150">Acronym</th>
-			<th width="150">Name</th>
-			<th width="150">Score</th>
-		</tr>
-	</thead>
-	<tbody>
-<tr *ngFor="let item of average_max_time_to_mitigate">
-  <td><a target="_blank" href="/status/{{item[0]}}">{{item[0]}}</a></td>
-  <td>{{ item[1] }}</td>
-  <td>{{ item[2] }}</td>
-</tr>
-</tbody>
-</table>
+    <h3>Average Max Time to Mitigate Vulnerabilities Score</h3>
+    <p>
+      Summation of weighted Critical, High, Medium, and Low max time to mitigate
+      vulnerabilities, ranked highest to lowest.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th width="150">Acronym</th>
+          <th width="150">Name</th>
+          <th width="150">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of average_max_time_to_mitigate">
+          <td>
+            <a target="_blank" href="/status/{{ item[0] }}">{{ item[0] }}</a>
+          </td>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-<br><br>
+    <br /><br />
 
-<h3>Total Relative Score</h3>
-<p>Summation of Average Number of Vulnerabilities Score, Average Max Age of Vulnerabilities Alive Score,Average Max Time to Mitigate ranked highest to lowest.</p>
-<table>
-	<thead>
-		<tr>
-			<th width="150">Acronym</th>
-			<th width="150">Name</th>
-			<th width="150">Score</th>
-		</tr>
-	</thead>
-	<tbody>
-<tr *ngFor="let item of overall_rank">
-  <td><a target="_blank" href="/status/{{item[0]}}">{{item[0]}}</a></td>
-  <td>{{ item[1] }}</td>
-  <td>{{ item[2] }}</td>
-</tr>
-</tbody>
-</table>	
-
-    </div>
+    <h3>Total Relative Score</h3>
+    <p>
+      Summation of Average Number of Vulnerabilities Score, Average Max Age of
+      Vulnerabilities Alive Score,Average Max Time to Mitigate ranked highest to
+      lowest.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th width="150">Acronym</th>
+          <th width="150">Name</th>
+          <th width="150">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of overall_rank">
+          <td>
+            <a target="_blank" href="/status/{{ item[0] }}">{{ item[0] }}</a>
+          </td>
+          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

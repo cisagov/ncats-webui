@@ -1,0 +1,9 @@
+# Already being linted by pretty-format-json
+*.json
+# Already being linted by mdl
+*.md
+# We do not want to unminify JavaScript files
+*.min.js
+# Already being linted by yamllint
+*.yaml
+*.yml

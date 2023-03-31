@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { LoadingCirclesComponent } from './loading-circles.component';
+import { LoadingCirclesComponent } from "./loading-circles.component";
 
-describe('LoadingCirclesComponent', () => {
+describe("LoadingCirclesComponent", () => {
   let component: LoadingCirclesComponent;
   let fixture: ComponentFixture<LoadingCirclesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoadingCirclesComponent ]
-    })
-    .compileComponents();
+      declarations: [LoadingCirclesComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('LoadingCirclesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

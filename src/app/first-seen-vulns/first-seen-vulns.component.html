@@ -10,7 +10,7 @@
 <div *ngIf="!isLoading">
   <div class="row" *ngIf="selectedVuln">
     <div class="large-12 columns">
-      <h3>{{selectedVuln[0]?.details?.name}}</h3>
+      <h3>{{ selectedVuln[0]?.details?.name }}</h3>
       <a class="button tiny" (click)="goBack()">Back</a>
       <pre>{{ selectedVuln | json }}</pre>
     </div>
@@ -20,27 +20,33 @@
     <div class="large-12 columns">
       <h1>First-Seen Vulnerabilities</h1>
       <table id="ticket-table" role="grid">
-          <!-- <CAPTION><EM>Snapshots</EM></CAPTION> -->
-          <thead>
-              <tr>
-                  <th>Vulnerability Name</th>
-                  <th>Severity</th>
-                  <th>First Seen</th>
-                  <th>Open</th>
-                  <th>Closed</th>
-                  <th>Total</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr class="{{ rowStyle(vuln) }}" *ngFor="let vuln of firstSeenVulns">
-              <td><a (click)="viewVuln(vuln)">{{ vuln.details?.name }}</a></td>
-              <td>{{ SEVERITY[vuln.details?.severity] }} ({{ vuln.details?.cvss_base_score }})</td>
-              <td>{{ vuln.first_seen | amTimeAgo }}</td>
-              <td>{{ vuln.open_count }}</td>
-              <td>{{ vuln.closed_count }}</td>
-              <td>{{ vuln.total }}</td>
-            </tr>
-          </tbody>
+        <!-- <CAPTION><EM>Snapshots</EM></CAPTION> -->
+        <thead>
+          <tr>
+            <th>Vulnerability Name</th>
+            <th>Severity</th>
+            <th>First Seen</th>
+            <th>Open</th>
+            <th>Closed</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="{{ rowStyle(vuln) }}" *ngFor="let vuln of firstSeenVulns">
+            <td>
+              <a (click)="viewVuln(vuln)">{{ vuln.details?.name }}</a>
+            </td>
+            <td>
+              {{ SEVERITY[vuln.details?.severity] }} ({{
+                vuln.details?.cvss_base_score
+              }})
+            </td>
+            <td>{{ vuln.first_seen | amTimeAgo }}</td>
+            <td>{{ vuln.open_count }}</td>
+            <td>{{ vuln.closed_count }}</td>
+            <td>{{ vuln.total }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

@@ -32,11 +32,12 @@ body {
   padding-bottom: 100px;
 }
 
-h1, h3 {
+h1,
+h3 {
   display: block;
   margin: 0px auto;
   text-align: center;
-  font-family: 'Tahoma';
+  font-family: "Tahoma";
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.5);
   letter-spacing: 1.5px;
@@ -46,7 +47,10 @@ h1 {
   margin: 50px auto;
 }
 
-.loader1, .loader2, .loader3, .loader4 {
+.loader1,
+.loader2,
+.loader3,
+.loader4 {
   position: relative;
   margin: 75px auto;
   width: 150px;
@@ -55,12 +59,16 @@ h1 {
   overflow: hidden;
 }
 
-.loader1 div, .loader2 div, .loader3 div, .loader4 div {
+.loader1 div,
+.loader2 div,
+.loader3 div,
+.loader4 div {
   height: 100%;
 }
 
 /* loader 1 */
-.loader1, .loader1 div {
+.loader1,
+.loader1 div {
   border-radius: 50%;
   padding: 8px;
   border: 2px solid transparent;
@@ -70,7 +78,8 @@ h1 {
 }
 
 /*loader 2  */
-.loader2, .loader2 div {
+.loader2,
+.loader2 div {
   border-radius: 50%;
   padding: 8px;
   border: 2px solid transparent;
@@ -81,7 +90,8 @@ h1 {
 }
 
 /*loader 3  */
-.loader3, .loader3 div {
+.loader3,
+.loader3 div {
   border-radius: 50%;
   padding: 8px;
   border: 2px solid transparent;
@@ -93,7 +103,8 @@ h1 {
 }
 
 /* loader 4 */
-.loader4, .loader4 div {
+.loader4,
+.loader4 div {
   border-radius: 50%;
   padding: 8px;
   border: 2px solid transparent;

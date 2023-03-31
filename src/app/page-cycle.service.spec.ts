@@ -1,15 +1,18 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing";
 
-import { PageCycleService } from './page-cycle.service';
+import { PageCycleService } from "./page-cycle.service";
 
-describe('PageCycleService', () => {
+describe("PageCycleService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PageCycleService]
+      providers: [PageCycleService],
     });
   });
 
-  it('should be created', inject([PageCycleService], (service: PageCycleService) => {
-    expect(service).toBeTruthy();
-  }));
+  it("should be created", inject(
+    [PageCycleService],
+    (service: PageCycleService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

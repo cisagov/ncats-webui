@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { CookieService } from './cookie.service';
+import { TestBed, async, inject } from "@angular/core/testing";
+import { CookieService } from "./cookie.service";
 
-describe('CookieService', () => {
+describe("CookieService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CookieService]
+      providers: [CookieService],
     });
   });
 
-  it('should ...', inject([CookieService], (service: CookieService) => {
+  it("should ...", inject([CookieService], (service: CookieService) => {
     expect(service).toBeTruthy();
   }));
 });

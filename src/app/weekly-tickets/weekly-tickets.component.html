@@ -1,194 +1,607 @@
-
 <div class="row">
-    <div class="large-12 columns">
-        <h1>Weekly Tickets Report</h1>
-    </div>
+  <div class="large-12 columns">
+    <h1>Weekly Tickets Report</h1>
+  </div>
 </div>
 <div class="row">
-    <app-loading-circles *ngIf="isLoading"></app-loading-circles>
-    <div *ngIf="!isLoading" class="large-12 columns">
-<p>
-    Currently-Open Non-False-Positive Tickets: <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.total  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.federal  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.SLTT  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.private  }} </span><br>
-Currently-Open False-Positive Tickets: <span *ngIf="reportData"> {{ reportData.open_FP_tix.total  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{ reportData.open_FP_tix.federal  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{ reportData.open_FP_tix.SLTT  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{ reportData.open_FP_tix.private  }} </span><br>
-Data below does not include False-Positive tickets
-</p>
-<div>
-  <h5>Ticket Counts By Fiscal Year</h5>
-    <table id="fy-ticket-counts-table" role="grid">
+  <app-loading-circles *ngIf="isLoading"></app-loading-circles>
+  <div *ngIf="!isLoading" class="large-12 columns">
+    <p>
+      Currently-Open Non-False-Positive Tickets:
+      <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.total }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.federal }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.SLTT }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData"> {{ reportData.open_non_FP_tix.private }} </span
+      ><br />
+      Currently-Open False-Positive Tickets:
+      <span *ngIf="reportData"> {{ reportData.open_FP_tix.total }} </span><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData"> {{ reportData.open_FP_tix.federal }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData"> {{ reportData.open_FP_tix.SLTT }} </span><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData"> {{ reportData.open_FP_tix.private }} </span
+      ><br />
+      Data below does not include False-Positive tickets
+    </p>
+    <div>
+      <h5>Ticket Counts By Fiscal Year</h5>
+      <table id="fy-ticket-counts-table" role="grid">
         <thead>
-            <tr>
-                <th>Fiscal Year</th>
-                <th class="text-right">Tickets Opened<br/>During FY</th>
-                <th class="text-right">Tickets Open<br/>During FY</th>
-                <th class="text-right">Tickets Closed<br/>During FY</th>
-            </tr>
+          <tr>
+            <th>Fiscal Year</th>
+            <th class="text-right">Tickets Opened<br />During FY</th>
+            <th class="text-right">Tickets Open<br />During FY</th>
+            <th class="text-right">Tickets Closed<br />During FY</th>
+          </tr>
         </thead>
         <tbody>
           <tr *ngFor="let fiscalYear of fiscalYearKeys">
             <td>FY {{ fiscalYear }}</td>
-            <td class="text-right">{{ reportData.FY_ticket_counts_by_year[fiscalYear].opened | number:'2.' }}</td>
-            <td class="text-right">{{ reportData.FY_ticket_counts_by_year[fiscalYear].open | number:'2.' }}</td>
-            <td class="text-right">{{ reportData.FY_ticket_counts_by_year[fiscalYear].closed | number:'2.' }}</td>
+            <td class="text-right">
+              {{
+                reportData.FY_ticket_counts_by_year[fiscalYear].opened
+                  | number : "2."
+              }}
+            </td>
+            <td class="text-right">
+              {{
+                reportData.FY_ticket_counts_by_year[fiscalYear].open
+                  | number : "2."
+              }}
+            </td>
+            <td class="text-right">
+              {{
+                reportData.FY_ticket_counts_by_year[fiscalYear].closed
+                  | number : "2."
+              }}
+            </td>
           </tr>
           <tr *ngIf="reportData">
             <td><b>TOTAL</b></td>
-            <td class="text-right"><b>{{ reportData.FY_ticket_count_totals.opened | number:'2.' }}</b></td>
-            <td> &nbsp; </td>
-            <td class="text-right"><b>{{ reportData.FY_ticket_count_totals.closed | number:'2.' }}</b></td>
+            <td class="text-right">
+              <b>{{
+                reportData.FY_ticket_count_totals.opened | number : "2."
+              }}</b>
+            </td>
+            <td>&nbsp;</td>
+            <td class="text-right">
+              <b>{{
+                reportData.FY_ticket_count_totals.closed | number : "2."
+              }}</b>
+            </td>
           </tr>
         </tbody>
-    </table>
-</div>
-<p>
-    Current FY Activity (<span *ngIf="reportData"> {{reportData.currentFYactivity.start }}</span> - <span *ngIf="reportData"> {{reportData.currentFYactivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.currentFYactivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentFYactivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentFYactivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentFYactivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.currentFYactivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentFYactivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentFYactivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentFYactivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.currentFYactivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentFYactivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentFYactivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentFYactivity.privReports }} </span><br>
-</p>
-
-<p>
-    Previous FY Activity (<span *ngIf="reportData"> {{reportData.previousFYactivity.start }}</span> - <span *ngIf="reportData"> {{reportData.previousFYactivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.previousFYactivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousFYactivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousFYactivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousFYactivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.previousFYactivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousFYactivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousFYactivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousFYactivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.previousFYactivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousFYactivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousFYactivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousFYactivity.privReports }} </span><br>
-</p>
-
-<p>
-    Current Month Activity (<span *ngIf="reportData"> {{reportData.currentMonthActivity.start }} </span> - <span *ngIf="reportData"> {{reportData.currentMonthActivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.currentMonthActivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentMonthActivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentMonthActivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentMonthActivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.currentMonthActivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentMonthActivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentMonthActivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentMonthActivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.currentMonthActivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentMonthActivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentMonthActivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentMonthActivity.privReports }} </span><br>
-</p>
-
-<p>
-    Previous Month Activity (<span *ngIf="reportData"> {{reportData.previousMonthActivity.start }}</span> - <span *ngIf="reportData"> {{reportData.previousMonthActivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.previousMonthActivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousMonthActivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousMonthActivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousMonthActivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.previousMonthActivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousMonthActivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousMonthActivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousMonthActivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.previousMonthActivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousMonthActivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousMonthActivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousMonthActivity.privReports }} </span><br>
-</p>
-
-<p>
-    Current Week Activity (<span *ngIf="reportData"> {{reportData.currentWeekActivity.start }}</span> - <span *ngIf="reportData"> {{reportData.currentWeekActivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.currentWeekActivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentWeekActivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentWeekActivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentWeekActivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.currentWeekActivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentWeekActivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentWeekActivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentWeekActivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.currentWeekActivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.currentWeekActivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.currentWeekActivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.currentWeekActivity.privReports }} </span><br>
-</p>
-
-<p>
-    Previous Week Activity (<span *ngIf="reportData"> {{reportData.previousWeekActivity.start }}</span> - <span *ngIf="reportData"> {{reportData.previousWeekActivity.end }} </span>)<br>
-    Tickets Opened: <span *ngIf="reportData"> {{reportData.previousWeekActivity.opened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousWeekActivity.fedOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousWeekActivity.SLTTOpened }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousWeekActivity.privOpened }} </span><br>
-    Tickets Closed: <span *ngIf="reportData"> {{reportData.previousWeekActivity.closed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousWeekActivity.fedClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousWeekActivity.SLTTClosed }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousWeekActivity.privClosed }} </span><br>
-    Reports Generated: <span *ngIf="reportData"> {{reportData.previousWeekActivity.reports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal: <span *ngIf="reportData"> {{reportData.previousWeekActivity.fedReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT: <span *ngIf="reportData"> {{reportData.previousWeekActivity.SLTTReports }} </span><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private: <span *ngIf="reportData"> {{reportData.previousWeekActivity.privReports }} </span><br><br>
-</p>
-
-
-<p>
-    Federal: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.fed  }} </span><br>
-    SLTT: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.sltt  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.state  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Local: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.local  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tribal: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.tribal  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Territorial: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.territorial  }} </span><br>
-    Private: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.private  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chemical: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.chemical  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commercial Facilities: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.commercial_facilities  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Communications: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.communications  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical Manufacturing: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.critical_manufacturing  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dams: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.dams  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defense Industrial Base: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.defense_industrial_base  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Emergency Services: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.emergency_services  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Energy: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.energy  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Financial Services: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.financial_services  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food and Agriculture: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.food_and_agriculture  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Government Facilities: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.government_facilities  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Healthcare and Public Health: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.healthcare_and_public_health  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information Technology: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.information_technology  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nuclear Reactors Materials and Waste: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.nuclear_reactors_materials_and_waste  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transportation Systems: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.transportation_systems  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Water and Wastewater Systems: <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.water_and_wastewater_systems  }} </span><br>
-</p>
-
-
-<p>
-    Total number of tickets opened in CyHy since inception (as of current date/time): <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_opened_since_inception  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_opened_since_inception_critical  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_opened_since_inception_high  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_opened_since_inception_medium  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_opened_since_inception_low  }} </span><br>
-
-    Total number of tickets currently open in CyHy: <span *ngIf="reportData"> {{ reportData.all_time_tickets.currently_open  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical: <span *ngIf="reportData"> {{ reportData.all_time_tickets.currently_open_critical  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <span *ngIf="reportData"> {{ reportData.all_time_tickets.currently_open_high  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium: <span *ngIf="reportData"> {{ reportData.all_time_tickets.currently_open_medium  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low: <span *ngIf="reportData"> {{ reportData.all_time_tickets.currently_open_low  }} </span><br>
-
-    Total number of tickets closed in CyHy since inception: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_closed_since_inception  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_closed_since_inception_critical  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_closed_since_inception_high  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_closed_since_inception_medium  }} </span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low: <span *ngIf="reportData"> {{ reportData.all_time_tickets.total_closed_since_inception_low  }} </span><br>
-
-</p>
-
+      </table>
     </div>
+    <p>
+      Current FY Activity (<span *ngIf="reportData">
+        {{ reportData.currentFYactivity.start }}</span
+      >
+      -
+      <span *ngIf="reportData"> {{ reportData.currentFYactivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData"> {{ reportData.currentFYactivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData"> {{ reportData.currentFYactivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentFYactivity.privReports }} </span
+      ><br />
+    </p>
+
+    <p>
+      Previous FY Activity (<span *ngIf="reportData">
+        {{ reportData.previousFYactivity.start }}</span
+      >
+      -
+      <span *ngIf="reportData"> {{ reportData.previousFYactivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousFYactivity.privReports }} </span
+      ><br />
+    </p>
+
+    <p>
+      Current Month Activity (<span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.start }}
+      </span>
+      -
+      <span *ngIf="reportData"> {{ reportData.currentMonthActivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentMonthActivity.privReports }} </span
+      ><br />
+    </p>
+
+    <p>
+      Previous Month Activity (<span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.start }}</span
+      >
+      -
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousMonthActivity.privReports }} </span
+      ><br />
+    </p>
+
+    <p>
+      Current Week Activity (<span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.start }}</span
+      >
+      -
+      <span *ngIf="reportData"> {{ reportData.currentWeekActivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.currentWeekActivity.privReports }} </span
+      ><br />
+    </p>
+
+    <p>
+      Previous Week Activity (<span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.start }}</span
+      >
+      -
+      <span *ngIf="reportData"> {{ reportData.previousWeekActivity.end }} </span
+      >)<br />
+      Tickets Opened:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.opened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.fedOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.SLTTOpened }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.privOpened }} </span
+      ><br />
+      Tickets Closed:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.closed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.fedClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.SLTTClosed }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.privClosed }} </span
+      ><br />
+      Reports Generated:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.reports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Federal:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.fedReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.SLTTReports }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private:
+      <span *ngIf="reportData">
+        {{ reportData.previousWeekActivity.privReports }} </span
+      ><br /><br />
+    </p>
+
+    <p>
+      Federal:
+      <span *ngIf="reportData"> {{ reportData.stakeholders_scanned.fed }} </span
+      ><br />
+      SLTT:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.sltt }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.state }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Local:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.local }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tribal:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.tribal }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Territorial:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.territorial }} </span
+      ><br />
+      Private:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.private }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chemical:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.chemical }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commercial Facilities:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.commercial_facilities }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Communications:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.communications }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical Manufacturing:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.critical_manufacturing }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dams:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.dams }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defense Industrial Base:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.defense_industrial_base }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Emergency Services:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.emergency_services }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Energy:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.energy }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Financial Services:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.financial_services }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food and Agriculture:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.food_and_agriculture }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Government Facilities:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.government_facilities }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Healthcare and Public Health:
+      <span *ngIf="reportData">
+        {{
+          reportData.stakeholders_scanned.healthcare_and_public_health
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information Technology:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.information_technology }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nuclear Reactors Materials and Waste:
+      <span *ngIf="reportData">
+        {{
+          reportData.stakeholders_scanned.nuclear_reactors_materials_and_waste
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transportation Systems:
+      <span *ngIf="reportData">
+        {{ reportData.stakeholders_scanned.transportation_systems }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Water and Wastewater Systems:
+      <span *ngIf="reportData">
+        {{
+          reportData.stakeholders_scanned.water_and_wastewater_systems
+        }} </span
+      ><br />
+    </p>
+
+    <p>
+      Total number of tickets opened in CyHy since inception (as of current
+      date/time):
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.total_opened_since_inception }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_opened_since_inception_critical
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_opened_since_inception_high
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_opened_since_inception_medium
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_opened_since_inception_low
+        }} </span
+      ><br />
+
+      Total number of tickets currently open in CyHy:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.currently_open }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.currently_open_critical }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.currently_open_high }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.currently_open_medium }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.currently_open_low }} </span
+      ><br />
+
+      Total number of tickets closed in CyHy since inception:
+      <span *ngIf="reportData">
+        {{ reportData.all_time_tickets.total_closed_since_inception }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Critical:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_closed_since_inception_critical
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;High:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_closed_since_inception_high
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_closed_since_inception_medium
+        }} </span
+      ><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low:
+      <span *ngIf="reportData">
+        {{
+          reportData.all_time_tickets.total_closed_since_inception_low
+        }} </span
+      ><br />
+    </p>
+  </div>
 </div>

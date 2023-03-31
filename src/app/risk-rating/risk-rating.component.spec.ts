@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { RiskRatingComponent } from './risk-rating.component';
+import { RiskRatingComponent } from "./risk-rating.component";
 
-describe('RiskRatingComponent', () => {
+describe("RiskRatingComponent", () => {
   let component: RiskRatingComponent;
   let fixture: ComponentFixture<RiskRatingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RiskRatingComponent ]
-    })
-    .compileComponents();
+      declarations: [RiskRatingComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('RiskRatingComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

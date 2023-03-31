@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { FirstSeenVulnsComponent } from './first-seen-vulns.component';
+import { FirstSeenVulnsComponent } from "./first-seen-vulns.component";
 
-describe('FirstSeenVulnsComponent', () => {
+describe("FirstSeenVulnsComponent", () => {
   let component: FirstSeenVulnsComponent;
   let fixture: ComponentFixture<FirstSeenVulnsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstSeenVulnsComponent ]
-    })
-    .compileComponents();
+      declarations: [FirstSeenVulnsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('FirstSeenVulnsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

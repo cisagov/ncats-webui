@@ -1,138 +1,251 @@
 <div class="dashboard">
   <div class="row full">
-      <div class="small-12 medium-5 columns right-border">
-          <div class="row status">
-            <div id="metrics" class="small-8 columns small-header">OVERALL METRICS</div>
-            <div class="small-4 columns small-header">MEASUREMENT</div>
-          </div>
-          <div class="row status">
-            <div id="number_of_stakeholders" class="small-8 columns">STAKEHOLDERS</div>
-            <div id='stakeholders' class="small-4 columns">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns">ADDRESSES</div>
-            <div id='addresses' class="small-4 columns">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns">HOSTS</div>
-            <div id='hosts' class="small-4 columns">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns">VULNERABLE HOSTS</div>
-            <div id='vulnerable_hosts' class="small-4 columns">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns">VULNERABILITIES</div>
-            <div id='vulns_total' class="small-4 columns">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns vuln-critical indent">CRITICAL</div>
-            <div id='vulns_critical' class="small-4 columns vuln-critical">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns vuln-high indent">HIGH</div>
-            <div id='vulns_high' class="small-4 columns vuln-high">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns vuln-medium indent">MEDIUM</div>
-            <div id='vulns_medium' class="small-4 columns vuln-medium">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns vuln-low indent">LOW</div>
-            <div id='vulns_low' class="small-4 columns vuln-low">0</div>
-          </div>
-          <div class="row status">
-            <div class="small-8 columns">REPORTS DELIVERED</div>
-            <div id='reports' class="small-4 columns">0</div>
-          </div>
+    <div class="small-12 medium-5 columns right-border">
+      <div class="row status">
+        <div id="metrics" class="small-8 columns small-header">
+          OVERALL METRICS
+        </div>
+        <div class="small-4 columns small-header">MEASUREMENT</div>
       </div>
-      <div class="small-12 medium-7 columns">
-          <div class="row status">
-            <div id="stakeholder_type" class="small-10 columns small-header">STAKEHOLDER</div>
-            <div class="small-1 columns small-header">CRIT</div>
-            <div class="small-1 columns small-header">HIGH</div>
-          </div>
-          <div id="stakeholder_column">
-          </div>
+      <div class="row status">
+        <div id="number_of_stakeholders" class="small-8 columns">
+          STAKEHOLDERS
+        </div>
+        <div id="stakeholders" class="small-4 columns">0</div>
       </div>
+      <div class="row status">
+        <div class="small-8 columns">ADDRESSES</div>
+        <div id="addresses" class="small-4 columns">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns">HOSTS</div>
+        <div id="hosts" class="small-4 columns">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns">VULNERABLE HOSTS</div>
+        <div id="vulnerable_hosts" class="small-4 columns">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns">VULNERABILITIES</div>
+        <div id="vulns_total" class="small-4 columns">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns vuln-critical indent">CRITICAL</div>
+        <div id="vulns_critical" class="small-4 columns vuln-critical">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns vuln-high indent">HIGH</div>
+        <div id="vulns_high" class="small-4 columns vuln-high">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns vuln-medium indent">MEDIUM</div>
+        <div id="vulns_medium" class="small-4 columns vuln-medium">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns vuln-low indent">LOW</div>
+        <div id="vulns_low" class="small-4 columns vuln-low">0</div>
+      </div>
+      <div class="row status">
+        <div class="small-8 columns">REPORTS DELIVERED</div>
+        <div id="reports" class="small-4 columns">0</div>
+      </div>
+    </div>
+    <div class="small-12 medium-7 columns">
+      <div class="row status">
+        <div id="stakeholder_type" class="small-10 columns small-header">
+          STAKEHOLDER
+        </div>
+        <div class="small-1 columns small-header">CRIT</div>
+        <div class="small-1 columns small-header">HIGH</div>
+      </div>
+      <div id="stakeholder_column"></div>
+    </div>
   </div>
 
   <div class="row full">
-      <div class="small-12 large-3 columns">
-          <div class="row">
-              <div class="small-12 columns small-header">NETWORK SCAN</div>
-          </div>
-          <div class="row">
-              <div class="small-12 columns text-center">
-                  <svg width="330" height="64">
-                      <g>
-                          <polygon points="0,0 145,0 175,32 145,64 0,64" opacity="0.65" fill="#ff6666" />
-                          <text id="ns1_waiting" x="80px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                      <g transform="translate(155,0)">
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" fill="#ff6666" />
-                          <text id="ns1_running" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                  </svg>
-              </div>
-          </div>
+    <div class="small-12 large-3 columns">
+      <div class="row">
+        <div class="small-12 columns small-header">NETWORK SCAN</div>
       </div>
-      <div class="small-12 large-3 columns">
-          <div class="row">
-              <div class="small-12 columns small-header">COMMON PORT SCAN</div>
-          </div>
-          <div class="row">
-              <div class="small-12 columns text-center">
-                  <svg width="330" height="64">
-                      <g>
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" opacity="0.65" fill="#FFCC66" />
-                          <text id="ns2_waiting" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                      <g transform="translate(155,0)">
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" fill="#FFCC66" />
-                          <text id="ns2_running" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                  </svg>
-              </div>
-          </div>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <svg width="330" height="64">
+            <g>
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64"
+                opacity="0.65"
+                fill="#ff6666"
+              />
+              <text
+                id="ns1_waiting"
+                x="80px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+            <g transform="translate(155,0)">
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                fill="#ff6666"
+              />
+              <text
+                id="ns1_running"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+          </svg>
+        </div>
       </div>
-      <div class="small-12 large-3 columns">
-          <div class="row">
-              <div class="small-12 columns small-header">FULL PORT SCAN</div>
-          </div>
-          <div class="row">
-              <div class="small-12 columns text-center">
-                  <svg width="330" height="64">
-                      <g>
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" opacity="0.65" fill="#66CCFF" />
-                          <text id="ps_waiting" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                      <g transform="translate(155,0)">
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" fill="#66CCFF" />
-                          <text id="ps_running" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                  </svg>
-              </div>
-          </div>
+    </div>
+    <div class="small-12 large-3 columns">
+      <div class="row">
+        <div class="small-12 columns small-header">COMMON PORT SCAN</div>
       </div>
-      <div class="small-12 large-3 columns">
-          <div class="row">
-              <div class="small-12 columns small-header">VULNERABILITY SCAN</div>
-          </div>
-          <div class="row">
-              <div class="small-12 columns text-center">
-                  <svg width="330" height="64">
-                      <g>
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" opacity="0.65" fill="#66FF66" />
-                          <text id="vs_waiting" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                      <g transform="translate(155,0)">
-                          <polygon points="0,0 145,0 175,32 145,64 0,64 30,32" fill="#66FF66" />
-                          <text id="vs_running" x="90px" y="1.33em" fill="black" text-anchor="middle" font-size="3em" font-family="univers">0</text>
-                      </g>
-                  </svg>
-              </div>
-          </div>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <svg width="330" height="64">
+            <g>
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                opacity="0.65"
+                fill="#FFCC66"
+              />
+              <text
+                id="ns2_waiting"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+            <g transform="translate(155,0)">
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                fill="#FFCC66"
+              />
+              <text
+                id="ns2_running"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+          </svg>
+        </div>
       </div>
+    </div>
+    <div class="small-12 large-3 columns">
+      <div class="row">
+        <div class="small-12 columns small-header">FULL PORT SCAN</div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <svg width="330" height="64">
+            <g>
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                opacity="0.65"
+                fill="#66CCFF"
+              />
+              <text
+                id="ps_waiting"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+            <g transform="translate(155,0)">
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                fill="#66CCFF"
+              />
+              <text
+                id="ps_running"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 large-3 columns">
+      <div class="row">
+        <div class="small-12 columns small-header">VULNERABILITY SCAN</div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns text-center">
+          <svg width="330" height="64">
+            <g>
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                opacity="0.65"
+                fill="#66FF66"
+              />
+              <text
+                id="vs_waiting"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+            <g transform="translate(155,0)">
+              <polygon
+                points="0,0 145,0 175,32 145,64 0,64 30,32"
+                fill="#66FF66"
+              />
+              <text
+                id="vs_running"
+                x="90px"
+                y="1.33em"
+                fill="black"
+                text-anchor="middle"
+                font-size="3em"
+                font-family="univers"
+              >
+                0
+              </text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

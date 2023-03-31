@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "baseUrl": "",
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
       "es6",
       "dom"
     ],
-    "outDir": "../out-tsc/spec",
     "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "../out-tsc/spec",
+    "sourceMap": true,
     "target": "es5",
-    "baseUrl": "",
     "types": [
       "jasmine",
       "node"

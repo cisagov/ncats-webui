@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs/Rx';
+import { Subject } from "rxjs/Rx";
 
 export class CyhyDataSource<T> extends Subject<T> {
   protected _name: string;
@@ -9,21 +9,17 @@ export class CyhyDataSource<T> extends Subject<T> {
     super();
   }
 
-
   getData(): T {
     return this._data;
   }
-
 
   getName(): string {
     return this._name;
   }
 
-
   setName(name: string): void {
     this._name = name;
   }
-
 
   update(data: T): void {
     this._data = data;
@@ -31,11 +27,9 @@ export class CyhyDataSource<T> extends Subject<T> {
     this.next(data);
   }
 
-
   lastUpdated(): Date {
     return this._lastUpdated;
   }
-
 
   isConnected(): boolean {
     return false;

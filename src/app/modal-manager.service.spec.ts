@@ -1,16 +1,19 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { ModalManagerService } from './modal-manager.service';
+import { TestBed, async, inject } from "@angular/core/testing";
+import { ModalManagerService } from "./modal-manager.service";
 
-describe('ModalManagerService', () => {
+describe("ModalManagerService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ModalManagerService]
+      providers: [ModalManagerService],
     });
   });
 
-  it('should ...', inject([ModalManagerService], (service: ModalManagerService) => {
-    expect(service).toBeTruthy();
-  }));
+  it("should ...", inject(
+    [ModalManagerService],
+    (service: ModalManagerService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

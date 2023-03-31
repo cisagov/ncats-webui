@@ -1,5 +1,10 @@
 FROM node:6
-MAINTAINER Adam M. Brown <adam.brown@hq.dhs.gov>
+
+# For a list of pre-defined annotation keys and value types see:
+# https://github.com/opencontainers/image-spec/blob/master/annotations.md
+# Note: Additional labels are added by the build workflow.
+LABEL org.opencontainers.image.authors="Adam M. Brown, vm-fusion-dev-group@trio.dhs.gov"
+LABEL org.opencontainers.image.vendor="Cybersecurity and Infrastructure Security Agency"
 
 # Environment Variables
 ENV NPM_CONFIG_LOGLEVEL warn
@@ -10,13 +15,14 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install application dependencies
-ADD package.json bower.json Makefile ./
+COPY package.json bower.json Makefile ./
 RUN make install
 
 # Add application code
-ADD . /usr/src/app
+COPY . /usr/src/app
 RUN make gulp
 
 EXPOSE 4200 9876
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["start"]

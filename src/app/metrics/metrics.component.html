@@ -1,120 +1,153 @@
-
 <div class="row">
-    <div class="large-12 columns">
-        <h1>Metrics</h1>
-    </div>
+  <div class="large-12 columns">
+    <h1>Metrics</h1>
+  </div>
 </div>
 <div class="flash" *ngIf="queryFlash">
-  {{queryFlash}}
+  {{ queryFlash }}
 </div>
-<form [formGroup]="queryForm" novalidate (ngSubmit)="submit(queryForm.value, queryForm.valid)">
-    <div class="row">
-        <div class="large-6 columns">
-            <label>Start Date <small>required</small></label>
-            <input type="date" formControlName="start" placeholder="mm/dd/yyyy"/>
-            <small *ngIf="!(queryForm.get('start').valid || (queryForm.get('start').pristine && !formSubmitted))" class="error">
-              A valid start date is required. mm/dd/yyyy
-            </small>
-        </div>
-        <div class="large-6 columns">
-            <label>End Date <small>required</small>
-                <input type="date" formControlName="end" placeholder="mm/dd/yyyy"/>
-            </label>
-            <small *ngIf="!(queryForm.get('end').valid || (queryForm.get('end').pristine && !formSubmitted))" class="error">
-              A valid start date is required. mm/dd/yyyy
-            </small>
-        </div>
+<form
+  [formGroup]="queryForm"
+  novalidate
+  (ngSubmit)="submit(queryForm.value, queryForm.valid)"
+>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Start Date <small>required</small></label>
+      <input type="date" formControlName="start" placeholder="mm/dd/yyyy" />
+      <small
+        *ngIf="
+          !(
+            queryForm.get('start').valid ||
+            (queryForm.get('start').pristine && !formSubmitted)
+          )
+        "
+        class="error"
+      >
+        A valid start date is required. mm/dd/yyyy
+      </small>
     </div>
-    <div class="row">
-        <div class="large-6 columns">
-            <label>Vulnerability Ticket Counts
-                <select formControlName="vuln_ticket_count">
-                    <option value=""></option>
-                    <option value="0">Total</option>
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                    <option value="4">Critical</option>
-                </select>
-            </label>
-        </div>
-        <div class="large-6 columns">
-            <label>Top 10 Vulnerability Tickets Opened (by name)
-                <select formControlName="top_vulns">
-                    <option value=""></option>
-                    <option value="0">Total</option>
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                    <option value="4">Critical</option>
-                </select>
-            </label>
-        </div>
+    <div class="large-6 columns">
+      <label
+        >End Date <small>required</small>
+        <input type="date" formControlName="end" placeholder="mm/dd/yyyy" />
+      </label>
+      <small
+        *ngIf="
+          !(
+            queryForm.get('end').valid ||
+            (queryForm.get('end').pristine && !formSubmitted)
+          )
+        "
+        class="error"
+      >
+        A valid start date is required. mm/dd/yyyy
+      </small>
     </div>
-    <div class="row">
-        <div class="large-12 columns">
-            <fieldset>
-                <legend>Time Intensive Options</legend>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="top_OS">
-                        <label for="top_OS">Top 10 Operating Systems</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="num_addresses_hosts_scanned">
-                        <label for="num_addresses_hosts_scanned">Number of Addresses Scanned</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="top_services">
-                        <label for="top_services">Top 10 Services</label>
-                    </div>
-                </div>
-            </fieldset>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label
+        >Vulnerability Ticket Counts
+        <select formControlName="vuln_ticket_count">
+          <option value=""></option>
+          <option value="0">Total</option>
+          <option value="1">Low</option>
+          <option value="2">Medium</option>
+          <option value="3">High</option>
+          <option value="4">Critical</option>
+        </select>
+      </label>
+    </div>
+    <div class="large-6 columns">
+      <label
+        >Top 10 Vulnerability Tickets Opened (by name)
+        <select formControlName="top_vulns">
+          <option value=""></option>
+          <option value="0">Total</option>
+          <option value="1">Low</option>
+          <option value="2">Medium</option>
+          <option value="3">High</option>
+          <option value="4">Critical</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <fieldset>
+        <legend>Time Intensive Options</legend>
+        <div class="row">
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="top_OS" />
+            <label for="top_OS">Top 10 Operating Systems</label>
+          </div>
+          <div class="large-4 columns">
+            <input
+              type="checkbox"
+              formControlName="num_addresses_hosts_scanned"
+            />
+            <label for="num_addresses_hosts_scanned"
+              >Number of Addresses Scanned</label
+            >
+          </div>
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="top_services" />
+            <label for="top_services">Top 10 Services</label>
+          </div>
         </div>
+      </fieldset>
     </div>
-    <div class="row">
-        <div class="large-12 columns">
-            <fieldset>
-                <legend>Faster Options</legend>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="num_orgs_scanned">
-                        <label for="num_orgs_scanned">Number of Organizations Scanned</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="top_vuln_services">
-                        <label for="top_vuln_services">Top 10 Vulnerable Services</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="num_reports_generated">
-                        <label for="num_scans_executed">Number of Reports Generated</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="avg_cvss_score">
-                        <label for="avg_cvss_score">Average CVSS Score</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="unique_vulns">
-                        <label for="unique_vulns">Top Unique Vulnerabilities Discovered</label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" formControlName="new_vuln_detections">
-                        <label for="new_vuln_detections">Top Vulnerability Tickets Opened</label>
-                    </div>
-                </div>
-            </fieldset>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <fieldset>
+        <legend>Faster Options</legend>
+        <div class="row">
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="num_orgs_scanned" />
+            <label for="num_orgs_scanned"
+              >Number of Organizations Scanned</label
+            >
+          </div>
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="top_vuln_services" />
+            <label for="top_vuln_services">Top 10 Vulnerable Services</label>
+          </div>
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="num_reports_generated" />
+            <label for="num_scans_executed">Number of Reports Generated</label>
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="large-2 columns small-centered">
-            <input id="querySubmit" type="submit" class="button">
+        <div class="row">
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="avg_cvss_score" />
+            <label for="avg_cvss_score">Average CVSS Score</label>
+          </div>
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="unique_vulns" />
+            <label for="unique_vulns"
+              >Top Unique Vulnerabilities Discovered</label
+            >
+          </div>
+          <div class="large-4 columns">
+            <input type="checkbox" formControlName="new_vuln_detections" />
+            <label for="new_vuln_detections"
+              >Top Vulnerability Tickets Opened</label
+            >
+          </div>
         </div>
+      </fieldset>
     </div>
-    <div *ngIf="isLoading" class="row">
-      <app-loading-circles></app-loading-circles>
+  </div>
+  <div class="row">
+    <div class="large-2 columns small-centered">
+      <input id="querySubmit" type="submit" class="button" />
     </div>
+  </div>
+  <div *ngIf="isLoading" class="row">
+    <app-loading-circles></app-loading-circles>
+  </div>
 </form>
 
 <app-metrics-results [queryResult]="queryResult"></app-metrics-results>

@@ -1,122 +1,237 @@
-
 <div class="row">
-    <div class="large-12 columns">
-        <h1>Preferences</h1>
-        <div class="hide"><span class="alert-box success"><i class="fi-check"></i> Saved</span></div>
+  <div class="large-12 columns">
+    <h1>Preferences</h1>
+    <div class="hide">
+      <span class="alert-box success"><i class="fi-check"></i> Saved</span>
     </div>
+  </div>
 </div>
 <form data-abide>
-    <div class="row">
-        <div class="large-12 columns">
-            <fieldset>
-                <legend>Presentation Controls</legend>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <input type="checkbox" id="censor_names" name="censor_names" (change)="toggleCookie($event);">
-                        <label for="censor_names"><span class="has-tip" title="When selected, the names of stakeholders on the dashboard will be heavily blurred.  This is useful for presenting the dashboard data without disclosing stakeholder details.  Careful:  Hovering over the blurred name will disclose its identity with a tooltip." data-tooltip="" data-width="300">Blur stakeholder names</span></label>
-                    </div>
-                    <div class="large-4 columns">
-                        <input type="checkbox" id="cycle_pages" name="cycle_pages" (change)="toggleCookie($event)">
-                        <label for="cycle_pages"><span class="has-tip" title="Rotate between the dashboard and map views." data-tooltip="" data-width="300">Cycle dashboard and map</span></label>
-                    </div>
-                    <div class="large-4 columns">
-                        <label>Page Cycle Delay <small>required</small>
-                            <input type="integer" id="cycle_delay" name="cycle_delay" required placeholder="seconds" (change)="saveInput($event)"/>
-                        </label>
-                        <small class="error">Enter the time in seconds between page changes.</small>
-                    </div>
-                </div>
-
-                <div class="row">
-                   <div class="large-4 columns">
-                        <input type="checkbox" id="election_data" name="election_data" (change)="toggleCookie($event);">
-                        <label for="election_data"><span class="has-tip" title="This will show only election stakeholders data on the dashboard." data-tooltip="" data-width="300">Show Only Election Data</span></label>
-                   </div>
-                  <div class="small-4 columns">
-                    <a data-dropdown="underscan-settings" class="dropdown-content button tiny dropdown" aria-controls="underscan-settings" aria-expanded="false">
-                      Underscan
-                    </a>
-                    <div id="underscan-settings" data-dropdown-content class="f-dropdown content mega" aria-hidden="true" aria-autoclose="false" tabindex="-1">
-                      <div class="row">
-                        <div class="small-12 columns">
-                          <label>Vertical Underscan (<a (click)="resetVerticalUnderscan()">reset</a>)</label>
-                          <input type="number" id="vertical-underscan" style="display:none;" value="{{verticalUnderscan}}">
-                        </div>
-                        <div class="small-12 columns">
-                          <div id="vertical-underscan-slider" class="range-slider" attr.data-slider="{{verticalUnderscan}}" data-options="display_selector: #vertical-underscan;">
-                            <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                            <span class="range-slider-active-segment"></span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="small-12 columns">
-                          <label>Horizontal Underscan (<a (click)="resetHorizontalUnderscan()">reset</a>)</label>
-                          <input type="number" id="horizontal-underscan" style="display:none;" value="{{horizontalUnderscan}}">
-                        </div>
-                        <div class="small-12 columns">
-                          <div id="horizontal-underscan-slider" class="range-slider" attr.data-slider="{{horizontalUnderscan}}" data-options="display_selector: #horizontal-underscan;">
-                            <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                            <span class="range-slider-active-segment"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </fieldset>
-        </div>
-    </div>
-    <div class="row">
-        <div class="large-12 columns">
-            <fieldset>
-                <legend>System Status</legend>
-                <div class="row">
-                  <div class="large-4 large-offset-1 columns">
-                    <p class="column-header">Service</p>
-                  </div>
-                  <div class="large-4 columns">
-                    <p class="column-header">Last Updated</p>
-                  </div>
-                  <div class="large-2 large-offset-1 columns">
-                    <p class="column-header center-text">Status</p>
-                  </div>
-                </div>
-
-                <div class="row" *ngFor="let feed of dataFeeds;">
-                  <div class="large-4 large-offset-1 columns">
-                    <p>{{feed.getName()}}</p>
-                  </div>
-                  <div class="large-4 columns">
-                    <p>{{feed.lastUpdated()?.toUTCString()}}</p>
-                  </div>
-                  <div class="large-2 large-offset-1 columns">
-                    <div class="led-box">
-                      <div *ngIf="feed.isConnected()" class="led-green"></div>
-                      <div *ngIf="!feed.isConnected()" class="led-red"></div>
-                    </div>
-                  </div>
-                </div>
-            </fieldset>
-        </div>
-    </div>
-    <div class="row">
-      <div class="large-6 columns">
-        <fieldset>
-          <legend>Cycle Order</legend>
-          <div class="dragula-container" [dragula]='"cycle-list-bag"' [dragulaModel]='cycleList'>
-            <div class="button horizontal-space moveable" *ngFor='let text of cycleList' [innerHtml]='text'></div>
+  <div class="row">
+    <div class="large-12 columns">
+      <fieldset>
+        <legend>Presentation Controls</legend>
+        <div class="row">
+          <div class="large-4 columns">
+            <input
+              type="checkbox"
+              id="censor_names"
+              name="censor_names"
+              (change)="toggleCookie($event)"
+            />
+            <label for="censor_names"
+              ><span
+                class="has-tip"
+                title="When selected, the names of stakeholders on the dashboard will be heavily blurred.  This is useful for presenting the dashboard data without disclosing stakeholder details.  Careful:  Hovering over the blurred name will disclose its identity with a tooltip."
+                data-tooltip=""
+                data-width="300"
+                >Blur stakeholder names</span
+              ></label
+            >
           </div>
-        </fieldset>
-      </div>
-      <div class="large-6 columns">
-        <fieldset>
-          <legend>Available Components</legend>
-          <div class="dragula-container" [dragula]='"cycle-list-bag"' [dragulaModel]='componentList'>
-            <div class="button horizontal-space moveable" *ngFor="let item of componentList" [innerHtml]='item'></div>
+          <div class="large-4 columns">
+            <input
+              type="checkbox"
+              id="cycle_pages"
+              name="cycle_pages"
+              (change)="toggleCookie($event)"
+            />
+            <label for="cycle_pages"
+              ><span
+                class="has-tip"
+                title="Rotate between the dashboard and map views."
+                data-tooltip=""
+                data-width="300"
+                >Cycle dashboard and map</span
+              ></label
+            >
           </div>
-        </fieldset>
-      </div>
+          <div class="large-4 columns">
+            <label
+              >Page Cycle Delay <small>required</small>
+              <input
+                type="integer"
+                id="cycle_delay"
+                name="cycle_delay"
+                required
+                placeholder="seconds"
+                (change)="saveInput($event)"
+              />
+            </label>
+            <small class="error"
+              >Enter the time in seconds between page changes.</small
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-4 columns">
+            <input
+              type="checkbox"
+              id="election_data"
+              name="election_data"
+              (change)="toggleCookie($event)"
+            />
+            <label for="election_data"
+              ><span
+                class="has-tip"
+                title="This will show only election stakeholders data on the dashboard."
+                data-tooltip=""
+                data-width="300"
+                >Show Only Election Data</span
+              ></label
+            >
+          </div>
+          <div class="small-4 columns">
+            <a
+              data-dropdown="underscan-settings"
+              class="dropdown-content button tiny dropdown"
+              aria-controls="underscan-settings"
+              aria-expanded="false"
+            >
+              Underscan
+            </a>
+            <div
+              id="underscan-settings"
+              data-dropdown-content
+              class="f-dropdown content mega"
+              aria-hidden="true"
+              aria-autoclose="false"
+              tabindex="-1"
+            >
+              <div class="row">
+                <div class="small-12 columns">
+                  <label
+                    >Vertical Underscan (<a (click)="resetVerticalUnderscan()"
+                      >reset</a
+                    >)</label
+                  >
+                  <input
+                    type="number"
+                    id="vertical-underscan"
+                    style="display: none"
+                    value="{{ verticalUnderscan }}"
+                  />
+                </div>
+                <div class="small-12 columns">
+                  <div
+                    id="vertical-underscan-slider"
+                    class="range-slider"
+                    attr.data-slider="{{ verticalUnderscan }}"
+                    data-options="display_selector: #vertical-underscan;"
+                  >
+                    <span
+                      class="range-slider-handle"
+                      role="slider"
+                      tabindex="0"
+                    ></span>
+                    <span class="range-slider-active-segment"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="small-12 columns">
+                  <label
+                    >Horizontal Underscan (<a
+                      (click)="resetHorizontalUnderscan()"
+                      >reset</a
+                    >)</label
+                  >
+                  <input
+                    type="number"
+                    id="horizontal-underscan"
+                    style="display: none"
+                    value="{{ horizontalUnderscan }}"
+                  />
+                </div>
+                <div class="small-12 columns">
+                  <div
+                    id="horizontal-underscan-slider"
+                    class="range-slider"
+                    attr.data-slider="{{ horizontalUnderscan }}"
+                    data-options="display_selector: #horizontal-underscan;"
+                  >
+                    <span
+                      class="range-slider-handle"
+                      role="slider"
+                      tabindex="0"
+                    ></span>
+                    <span class="range-slider-active-segment"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
     </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <fieldset>
+        <legend>System Status</legend>
+        <div class="row">
+          <div class="large-4 large-offset-1 columns">
+            <p class="column-header">Service</p>
+          </div>
+          <div class="large-4 columns">
+            <p class="column-header">Last Updated</p>
+          </div>
+          <div class="large-2 large-offset-1 columns">
+            <p class="column-header center-text">Status</p>
+          </div>
+        </div>
+
+        <div class="row" *ngFor="let feed of dataFeeds">
+          <div class="large-4 large-offset-1 columns">
+            <p>{{ feed.getName() }}</p>
+          </div>
+          <div class="large-4 columns">
+            <p>{{ feed.lastUpdated()?.toUTCString() }}</p>
+          </div>
+          <div class="large-2 large-offset-1 columns">
+            <div class="led-box">
+              <div *ngIf="feed.isConnected()" class="led-green"></div>
+              <div *ngIf="!feed.isConnected()" class="led-red"></div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <fieldset>
+        <legend>Cycle Order</legend>
+        <div
+          class="dragula-container"
+          [dragula]="'cycle-list-bag'"
+          [dragulaModel]="cycleList"
+        >
+          <div
+            class="button horizontal-space moveable"
+            *ngFor="let text of cycleList"
+            [innerHtml]="text"
+          ></div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="large-6 columns">
+      <fieldset>
+        <legend>Available Components</legend>
+        <div
+          class="dragula-container"
+          [dragula]="'cycle-list-bag'"
+          [dragulaModel]="componentList"
+        >
+          <div
+            class="button horizontal-space moveable"
+            *ngFor="let item of componentList"
+            [innerHtml]="item"
+          ></div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
 </form>

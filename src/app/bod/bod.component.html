@@ -1,60 +1,66 @@
-<span *ngIf="display_chart==chart.ALL">
-
+<span *ngIf="display_chart == chart.ALL">
   <div class="row">
-      <div class="large-12 columns">
-          <h1>Binding Operational Directive Status</h1>
-      </div>
+    <div class="large-12 columns">
+      <h1>Binding Operational Directive Status</h1>
+    </div>
   </div>
   <p></p>
   <div class="row">
-      <div class="large-12 columns">
-          <h3 class="subheader">The binding operation directive was issued by DHS on May 21, 2015.  The vulnerabilities related to this directive can be tracked below.</h3>
-      </div>
+    <div class="large-12 columns">
+      <h3 class="subheader">
+        The binding operation directive was issued by DHS on May 21, 2015. The
+        vulnerabilities related to this directive can be tracked below.
+      </h3>
+    </div>
   </div>
   <p></p>
-  <hr>
+  <hr />
   <div class="row">
-      <div class="large-12 columns">
-          <h2>Critical Vulnerability BOD Age and Backlog History</h2>
-      </div>
+    <div class="large-12 columns">
+      <h2>Critical Vulnerability BOD Age and Backlog History</h2>
+    </div>
   </div>
 </span>
 
 <!-- displaying chart 1 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
-      <div id="bod_chart1"></div>
+    <div id="bod_chart1"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.ONE" id="naked_chart1"></div>
+<div *ngIf="display_chart == chart.ONE" id="naked_chart1"></div>
 <!-- end of chart 1 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
   <div class="row">
     <div class="small-5 columns small-centered">
-        <a href="{{api_href}}/bod/?c1" class="button tiny radius"><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a>
-        <a href="{{api_href}}/bod/?c2" class="button tiny radius"><i class="fi-page-export-csv">​</i> ​Download Tickets CSV</a>
+      <a href="{{ api_href }}/bod/?c1" class="button tiny radius"
+        ><i class="fi-page-export-csv">​</i> ​Download Graph CSV</a
+      >
+      <a href="{{ api_href }}/bod/?c2" class="button tiny radius"
+        ><i class="fi-page-export-csv">​</i> ​Download Tickets CSV</a
+      >
     </div>
   </div>
-  <hr>
+  <hr />
   <div class="row">
-      <div class="large-12 columns">
-          <h2>Current Vulnerability BOD Age Distribution</h2>
-      </div>
+    <div class="large-12 columns">
+      <h2>Current Vulnerability BOD Age Distribution</h2>
+    </div>
   </div>
 </span>
 
 <!-- displaying chart 2 -->
-<div *ngIf="display_chart==chart.ALL" class="row">
+<div *ngIf="display_chart == chart.ALL" class="row">
   <div class="large-12 columns">
-      <div id="bod_chart2"></div>
+    <div id="bod_chart2"></div>
   </div>
 </div>
-<div *ngIf="display_chart==chart.TWO" id="naked_chart2"></div>
+<div *ngIf="display_chart == chart.TWO" id="naked_chart2"></div>
 <!-- end of chart 2 -->
 
-<span *ngIf="display_chart==chart.ALL">
+<span *ngIf="display_chart == chart.ALL">
   <p></p>
-  <hr>
+  <hr />
 </span>

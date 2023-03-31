@@ -24,10 +24,10 @@ install-config:
 	cp -n src/config/config.sample.json src/config/config.json || :
 
 dev-build:
-	docker-compose build
+	docker compose build
 
 dev-start:
-	docker-compose up -d
+	docker compose up -d
 
 dev-shell:
 	# Use $$ to properly escape $ for makefile
@@ -40,14 +40,14 @@ dev-logs:
 dev-rebuild: dev-clean dev-build
 
 dev-stop:
-	docker-compose down
+	docker compose down
 
 dev-clean:
-	docker-compose down -v --rmi local
+	docker compose down -v --rmi local
 
 docker-web-server:
 	# create the dist directory
-	docker-compose run --rm client make build
+	docker compose run --rm client make build
 	# copy the dist director into a docker image
 	docker build -t ncats/cyhy-web-server -f ./Dockerfile_dist .
 
