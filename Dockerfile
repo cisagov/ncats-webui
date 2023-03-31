@@ -3,7 +3,7 @@ FROM node:6
 # For a list of pre-defined annotation keys and value types see:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
 # Note: Additional labels are added by the build workflow.
-LABEL org.opencontainers.image.authors="Adam M. Brown, nicholas.mcdonnell@cisa.dhs.gov"
+LABEL org.opencontainers.image.authors="Adam M. Brown, vm-fusion-dev-group@trio.dhs.gov"
 LABEL org.opencontainers.image.vendor="Cybersecurity and Infrastructure Security Agency"
 
 # Environment Variables
