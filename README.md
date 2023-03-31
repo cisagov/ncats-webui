@@ -135,7 +135,7 @@ When installing packages with npm, the package will be made available
 "locally", or in your current working directory. From time to time you'll want
 to use it to install packages "globally", or system-wide. npm global installs
 are put in `/usr/local`, and binaries from those packages are sym-linked in
-`/usr/local/bin`. Some people don't mind `sudo`'ing npm installs, or `chown`'ing
+`/usr/local/bin`. Some people don't mind `sudo`ing npm installs, or `chown`ing
 `/usr/local` to make this work. However, I prefer changing the npm prefix to
 somewhere I have access. An example of how to do this can be seen below:
 
