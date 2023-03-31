@@ -26,6 +26,9 @@ repos:
       - id: pretty-format-json
         args:
           - --autofix
+        # Any exclusions should be specific as this is not something we
+        # typically do in our projects.
+        exclude: ^src/assets/topo/us\.json$
       - id: requirements-txt-fixer
       - id: trailing-whitespace
 
