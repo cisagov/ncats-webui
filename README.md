@@ -25,7 +25,7 @@ You can change the location of the API by modifying `src/config/config.json`.
 | data_port | string | The port the API is running on |
 | data_path | string | The path (if necessary) to access the API |
 | cycle_pages | string | A string "true"/"false" to determine whether to auto-cycle the pages for the user |
-| components | dict | A dictionary containing a component name and a boolean value to determine whether to show/hide that component. Example item: "hostmap": true |
+| components | dict | A dictionary containing a component name and a boolean value to determine whether to show/hide that component. Example item: `"hostmap": true` |
 
 NOTE: If you are running a local development server, the data path should be blank:
 
@@ -92,16 +92,16 @@ root@container# ng g service my-service
 ```
 
 Ensure that the addition is added to the `app.module.ts` file with the rest of
-it's type.
+its type.
 
 For more information on the usage of ng, visit the
-[Angular CLI repo][angular-cli-repo]
+[Angular CLI repo][angular-cli-repo].
 
 ## Adding Packages ##
 
 Since the npm/bower package installation occurs in the building of the image,
-you will need to add your package using whatever method you like (easiest is
-`npm install --save`, as shown below).
+you will need to add your package using whatever method you like (the easiest
+is `npm install --save`, as shown below).
 
 ### Install NPM or Bower packages ###
 
@@ -113,7 +113,7 @@ root@container# exit
 
 Don't forget that this container is temporary. You will need to rebuild your
 image with the new packages included when you're satisfied with your changes.
-Note, you do not have to rebuild for changes to code, only changes to package
+Note, you do not have to rebuild for code changes, only changes to package
 systems.
 
 ### Rebuild the development server ###
@@ -135,9 +135,9 @@ When installing packages with npm, the package will be made available
 "locally", or in your current working directory. From time to time you'll want
 to use it to install packages "globally", or system-wide. npm global installs
 are put in `/usr/local`, and binaries from those packages are sym-linked in
-`/usr/local/bin`. Some people don't mind `sudo`'ing npm installs, or chowning
+`/usr/local/bin`. Some people don't mind `sudo`'ing npm installs, or `chown`'ing
 `/usr/local` to make this work. However, I prefer changing the npm prefix to
-somewhere I have access to. An example of how to do this can be seen below:
+somewhere I have access. An example of how to do this can be seen below:
 
 ```console
 mkdir ~/.npm-global
