@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@types/selenium-webdriver": {
+      "from": "@types/selenium-webdriver@2.53.47",
+      "resolved": "https://registry.npmjs.org/@types/selenium-webdriver/-/selenium-webdriver-2.53.47.tgz",
+      "version": "2.53.47"
+    }
+  },
+  "name": "exam",
+  "version": "0.0.0"
+}
