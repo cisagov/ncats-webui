@@ -15,7 +15,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install application dependencies
-COPY bower.json Makefile npm-shrinkwrap.json package.json ./
+COPY .bowerrc bower.json Makefile npm-shrinkwrap.json package.json ./
 RUN make install
 
 # Add application code
