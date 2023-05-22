@@ -48,7 +48,7 @@ repos:
         # formatting changes that cause failures when used with a JavaScript project
         # as old as this one
         additional_dependencies:
-          - "prettier@2.8.7"
+          - "prettier@2.8.8"
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.30.0
     hooks:

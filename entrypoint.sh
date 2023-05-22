@@ -22,8 +22,8 @@ case "$1" in
   build)
     echo "Building to dist/ ..."
     make build
-    mkdir -p /usr/src/build
-    cp -r dist /usr/src/build
+    mkdir --parents /usr/src/build
+    cp --recursive dist /usr/src/build
     ;;
   start)
     echo "Starting up development server..."
