@@ -22,7 +22,7 @@ RUN apt-get update --quiet --quiet \
     && rm --recursive --force /var/lib/apt/lists/*
 
 # Set up the application directory
-RUN mkdir -p /usr/src/app
+RUN mkdir --parents /usr/src/app
 WORKDIR /usr/src/app
 
 # Install application dependencies
