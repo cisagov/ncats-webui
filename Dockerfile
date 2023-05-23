@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:10
 
 # For a list of pre-defined annotation keys and value types see:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
@@ -26,7 +26,7 @@ RUN mkdir --parents /usr/src/app
 WORKDIR /usr/src/app
 
 # Install application dependencies
-COPY .bowerrc bower.json Makefile npm-shrinkwrap.json package.json ./
+COPY bower.json Makefile package.json ./
 RUN make install
 
 # Add application code
