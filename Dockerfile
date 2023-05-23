@@ -29,11 +29,18 @@ WORKDIR /usr/src/app
 COPY bower.json Makefile package.json ./
 RUN make install
 
+# Add httpd files
+COPY .htaccess nginx.conf
+
 # Add application code
-COPY . /usr/src/app
+COPY src/ src/
+COPY .angular-cli.json gulpfile.js karma.conf.js protractor.conf.js ./
 RUN make gulp
 
-EXPOSE 4200 9876
+# Set up entrypoint
+COPY entrypoint.sh /usr/local/bin
+ENTRYPOINT ["entrypoint.sh"]
 
-ENTRYPOINT ["./entrypoint.sh"]
+# Prepare to run
+EXPOSE 4200 9876
 CMD ["start"]
