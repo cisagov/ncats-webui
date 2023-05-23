@@ -22,7 +22,7 @@ build-dev: install-config
 	find src -type f -print0 | sort -z | xargs -0 shasum | shasum > src/config/app.version
 
 install:
-	npm install
+	npm ci
 	bower --allow-root install
 
 gulp: install

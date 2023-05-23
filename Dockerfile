@@ -137,7 +137,7 @@ WORKDIR /usr/src/app
 COPY Makefile.docker Makefile
 
 # Install application dependencies
-COPY bower.json package.json ./
+COPY bower.json package.json package-lock.json ./
 RUN make install
 
 # Add httpd files
