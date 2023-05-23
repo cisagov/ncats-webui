@@ -95,6 +95,12 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
+ENV NPM_VERSION 7.24.2
+
+RUN npm install --global "npm@$NPM_VERSION" \
+  # smoke test
+  && npm --version
+
 FROM base-image AS build
 
 # For a list of pre-defined annotation keys and value types see:
