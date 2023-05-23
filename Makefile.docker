@@ -1,0 +1,43 @@
+PATH := node_modules/.bin:$(PATH)
+SHELL := /bin/ash
+current_dir = $(shell pwd)
+
+all: install gulp build
+
+dev: install gulp build-dev
+
+build: install install-config
+	ng build --prod
+	# BusyBox commands don't always support the full set of options available
+	# to their GNU counterparts:
+	# -z is the short form for --zero-terminated
+	# -0 is the short form for --null
+	find dist -type f -print0 | sort -z | xargs -0 shasum | shasum > dist/config/app.version
+
+build-dev: install-config
+	# BusyBox commands don't always support the full set of options available
+	# to their GNU counterparts:
+	# -z is the short form for --zero-terminated
+	# -0 is the short form for --null
+	find src -type f -print0 | sort -z | xargs -0 shasum | shasum > src/config/app.version
+
+install:
+	npm install
+	bower --allow-root install
+
+gulp: install
+	gulp
+
+install-config:
+	# Workaround equivalent to the --no-clobber option
+	false | cp --interactive src/config/config.sample.json src/config/config.json || :
+
+clean:
+	# BusyBox commands don't always support the full set of options available
+	# to their GNU counterparts:
+	# -r is the short form for --recursive
+	# -f is the short form for --force
+	rm -rf ./bower_components
+	rm -rf ./src/assets/bower
+	rm -rf ./node_modules
+	rm -rf ./dist

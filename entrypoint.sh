@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ash
+# shellcheck shell=dash
 
 set -o nounset
 set -o errexit
 set -o pipefail
 
 # Print usage information and exit.
-function usage {
+usage() {
   echo "Usage:"
   echo "  ${0##*/} build"
   echo "  ${0##*/} start"
