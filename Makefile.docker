@@ -1,4 +1,11 @@
+# This Makefile configuration is adapted from the main Makefile in the project.
+# It removes any Docker related commands and changes the shell from bash to
+# ash. The other commands are left intact to allow development within a running
+# Docker container as the src/ directory is mapped into the container when
+# using the Docker composition in the project.
 PATH := node_modules/.bin:$(PATH)
+# This should be changed if the Docker configuration moves away from Alpine
+# Linux in the future.
 SHELL := /bin/ash
 current_dir = $(shell pwd)
 
