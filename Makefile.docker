@@ -1,8 +1,13 @@
 # This Makefile configuration is adapted from the main Makefile in the project.
 # It removes any Docker related commands and changes the shell from bash to
-# ash. The other commands are left intact to allow development within a running
-# Docker container as the src/ directory is mapped into the container when
-# using the Docker composition in the project.
+# ash. The remaining commands are either:
+# - Used by the Dockerfile configuration
+# - Used by the entrypoint.sh script
+# - Used when developing within a running Docker container
+# The Docker composition defined in this repository (in docker-compose.yml)
+# is configured to mount the src/ directory on the host into the Docker
+# container it starts. This Makefile can then be used in the running container
+# to work with changes made to the project's source code.
 PATH := node_modules/.bin:$(PATH)
 # This should be changed if the Docker configuration moves away from Alpine
 # Linux in the future.
@@ -13,6 +18,7 @@ all: install gulp build
 
 dev: install gulp build-dev
 
+# Used by entrypoint.sh when run with the `build` command
 build: install install-config
 	ng build --prod
 	# BusyBox commands don't always support the full set of options available
@@ -21,6 +27,7 @@ build: install install-config
 	# -0 is the short form for --null
 	find dist -type f -print0 | sort -z | xargs -0 shasum | shasum > dist/config/app.version
 
+# Used by entrypoint.sh when run with the `start` command
 build-dev: install-config
 	# BusyBox commands don't always support the full set of options available
 	# to their GNU counterparts:
@@ -28,10 +35,12 @@ build-dev: install-config
 	# -0 is the short form for --null
 	find src -type f -print0 | sort -z | xargs -0 shasum | shasum > src/config/app.version
 
+# Used in the Dockerfile configuration
 install:
 	npm ci
 	bower --allow-root install
 
+# Used in the Dockerfile configuration
 gulp: install
 	gulp
 
