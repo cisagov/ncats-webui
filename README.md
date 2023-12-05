@@ -126,8 +126,8 @@ make dev-rebuild
 
 ### Prerequisites ###
 
-- [Node v4.x.x or higher][node-installation]
-- [NPM v3.x.x or higher][npm-installation]
+- [Node v10.24.1][node-installation]
+- [NPM v7.24.2][npm-installation]
 
 #### A note for NPM users ####
 
