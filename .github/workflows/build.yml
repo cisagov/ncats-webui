@@ -141,8 +141,15 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
   build:
+    needs:
+      - diagnostics
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - id: harden-runner
+        name: Harden the runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@v4
       - name: Build the Docker Compose configuration
         run: make dev-build
