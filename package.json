@@ -17,7 +17,7 @@
     "moment": "^2.15.2",
     "ng2-dragula": "^1.5.0",
     "rxjs": "^5.1.0",
-    "socket.io-client": "^1.5.0",
+    "socket.io-client": "^4.7.2",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "gulp-npm-run": "0.0.3",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
-    "karma": "~1.4.1",
+    "karma": "~6.4.2",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^0.2.0",
