@@ -75,7 +75,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of reportData | slice : 1; let i = index">
+        <tr *ngFor="let customer of reportData | slice: 1; let i = index">
           <td>{{ customer[0] }}</td>
           <td>
             <a target="_blank" href="/status/{{ customer[6] }}">{{
