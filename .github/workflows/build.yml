@@ -171,6 +171,9 @@ jobs:
   build:
     needs:
       - diagnostics
+    permissions:
+      # actions/checkout needs this to fetch code
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: GitHubSecurityLab/actions-permissions/monitor@v1
