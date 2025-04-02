@@ -1,12 +1,12 @@
 ---
-version: '3'
+version: "3"
 
 services:
   web-server:
     build: .
     ports:
-      - "4200:4200"
-      - "9876:9876"
+      - 4200:4200
+      - 9876:9876
     volumes:
       - ./src:/usr/src/app/src
       - dev_node_modules:/usr/src/app/node_modules
