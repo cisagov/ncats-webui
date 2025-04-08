@@ -54,6 +54,10 @@
     "webdriver-manager": "10.2.5",
     "wiredep": "^4.0.0"
   },
+  "engines": {
+    "node": "~10.24.1",
+    "npm": "~7.24.2"
+  },
   "license": "MIT",
   "name": "exam",
   "private": true,
