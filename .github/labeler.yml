@@ -19,7 +19,17 @@ dependencies:
           # Add any dependency files used.
           - .pre-commit-config.yaml
           - requirements*.txt
+<<<<<<< HEAD
           - package*.json
+=======
+# Enable if Docker is used in the repository.
+# docker:
+#   - changed-files:
+#       - any-glob-to-any-file:
+#           - "**/compose*.yml"
+#           - "**/docker-compose*.yml"
+#           - "**/Dockerfile*"
+>>>>>>> e447508101ff8a9afeae0894a25d6adb6416c854
 documentation:
   - changed-files:
       - any-glob-to-any-file:
