@@ -151,7 +151,8 @@ NPM_PREFIX=`npm config get prefix`
 export PATH="$NPM_PREFIX/bin:$PATH"
 ```
 
-More info can be found [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+More info can be found in the [NPM
+documentation](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 ### Development ###
 
