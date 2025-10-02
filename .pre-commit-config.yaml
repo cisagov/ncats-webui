@@ -67,7 +67,6 @@ repos:
         # as old as this one
         additional_dependencies:
           - prettier@2.8.8
-
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.37.1
     hooks:
