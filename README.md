@@ -1,6 +1,8 @@
 # NCATS-WebUI #
 
 [![GitHub Build Status](https://github.com/cisagov/ncats-webui/workflows/build/badge.svg)](https://github.com/cisagov/ncats-webui/actions)
+[![License](https://img.shields.io/github/license/cisagov/ncats-webui)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/ncats-webui/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ncats-webui/actions/workflows/codeql-analysis.yml)
 
 An [Angular](https://angular.io/) web application for displaying
 [CyHy Vulnerability Scanning](https://github.com/cisagov/cyhy_amis) data.
