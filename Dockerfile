@@ -77,12 +77,7 @@ RUN addgroup -g 1000 node \
 ENV YARN_VERSION 1.22.19
 
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
-  && for key in \
-    6A010C5166006599AA17F08146C2130DFD2497F5 \
-  ; do \
-    gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys "$key" || \
-    gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key" ; \
-  done \
+  && curl -fsSL --compressed "https://dl.yarnpkg.com/debian/pubkey.gpg" | gpg --batch --import \
   && curl -fsSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && curl -fsSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc" \
   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
