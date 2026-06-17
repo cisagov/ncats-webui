@@ -78,8 +78,8 @@ ENV YARN_VERSION 1.22.19
 
 RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && curl --compressed --fail --location --output yarn-pubkey.gpg --show-error --silent "https://dl.yarnpkg.com/debian/pubkey.gpg" \
+  && test "$(gpg --show-keys --with-colons yarn-pubkey.gpg | awk -F: '$5=="1646B01B86E50310" { getline; print $10; exit }')" = "72ECF46A56B4AD39C907BBB71646B01B86E50310" \
   && gpg --batch --import yarn-pubkey.gpg \
-  && test "$(gpg --batch --with-colons --fingerprint 1646B01B86E50310 | awk -F: '$1=="fpr" { print $10; exit }')" = "72ECF46A56B4AD39C907BBB71646B01B86E50310" \
   && curl --compressed --fail --location --remote-name --show-error --silent "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && curl --compressed --fail --location --remote-name --show-error --silent "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc" \
   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
